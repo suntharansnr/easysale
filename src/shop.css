@@ -1,0 +1,694 @@
+/* ---------------CSS DEFUALT START------------------------ */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap'); */
+
+
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap'); */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+@font-face {
+    
+    font-family: "Montserrat";
+    /* src: url("./../src/assets/fonts/Montserrat/Montserrat-Regular.ttf"); */
+    src: url("./../src/assets/fonts/Montserrat/Montserrat-Medium.ttf");
+  }
+
+
+html{
+    font-size: 62.5%;   /*10px --> 1rem */
+}
+
+*{
+    margin: 0;
+    padding: 0;   
+    overflow-x: hidden;   
+    font-family: Montserrat;      
+    box-sizing: border-box;
+    font-size: 1.5rem; 
+}
+
+:root {
+    --color-primary: #107e95;
+    --color-secondary: #ffc800;
+
+
+    --color-white: #fff;
+    --color-black: #000;  
+    --color-red: red;   
+    --color-light-grey: rgba(51, 51, 51, 0.788);   
+
+
+    --color-grey: #b7b8b9;   
+    --color-grey-2: #eee;   
+    --color-ccc: #ccc;   
+
+    --color-green: #149777;   
+    
+    --color-yellow: yellow;
+    --color-aqua: aqua;
+    --color-grey-ori: grey;
+
+    --color-link: #2196f3;
+
+
+
+    --page-content-width: 80%;   
+    --Nav-content-width:var(--page-content-width);   
+
+    --sm-size:576px;
+    --md-size:768px;
+    --lg-size:992px;
+    --xl-size:1200px;
+    --xxl-size:1400px;
+
+
+    /* hover */
+
+  
+
+    }
+
+  
+
+
+
+body{
+
+    
+}
+
+
+
+
+h1{   
+    font-size: 3rem; 
+}
+
+
+.w-95{    
+    width: 95% !important; 
+}
+.w-95{   
+    width: 95% !important; 
+}
+.w-90{   
+    width: 90% !important; 
+}
+.w-86{   
+    width: 86% !important; 
+}
+.w-85{   
+    width: 85% !important; 
+}
+.w-85{   
+    width: 85% !important; 
+}
+.w-84{   
+    width: 84% !important; 
+}
+.w-83{   
+    width: 83% !important; 
+}
+.w-82{   
+    width: 82% !important; 
+}
+.w-81{   
+    width: 81% !important; 
+}
+.w-80{   
+    width: 80% !important; 
+}
+.w-70{   
+    width: 70% !important; 
+}
+.w-65{   
+    width: 65% !important; 
+}
+.w-60{   
+    width: 60% !important; 
+}
+.w-55{   
+    width: 55% !important; 
+}
+.w-50{   
+    width: 50% !important; 
+}
+.w-49{   
+    width: 49% !important; 
+}
+.w-48{   
+    width: 48% ; 
+}
+.w-47{   
+    width: 47% ; 
+}
+.w-46{   
+    width: 46% ; 
+}
+.w-45{   
+    width: 45% ; 
+}
+.w-42{   
+    width: 42% ; 
+}
+.w-41{  
+    width: 41% ; 
+}
+.w-40{  
+    width: 40% ;  
+}
+.w-35{    
+    width: 35% !important;  
+}
+.w-30{ 
+    width: 30% !important;  
+}
+.w-20{
+    width: 20% !important; 
+}
+.w-25{ 
+    width: 25% !important; 
+}
+.w-18{    
+    width: 18% !important; 
+}
+.w-15{  
+    width: 15% !important; 
+}
+.w-10{
+    width: 10% !important; 
+}
+.w-9{
+    width: 9% !important; 
+}
+.w-8{ 
+    width: 8% !important; 
+}
+.w-5{
+    width: 5% !important; 
+}
+
+.h-100{
+    height: 100% !important;
+}
+.h-50{ 
+    height: 50% !important;
+}
+.h-20{  
+    height: 20% !important;
+}
+.h-auto{ 
+    height: auto !important;
+}
+
+
+.font-6{
+    font-size: 6rem !important; 
+}
+
+.font-5-5{
+    font-size: 5.5rem !important; 
+}
+
+.font-5{
+    font-size: 5rem !important; 
+}
+
+.font-4-5{
+    font-size: 4.5rem !important; 
+}
+.font-4{
+    font-size: 4rem !important; 
+}
+
+.font-3-5{
+    font-size: 3.5rem !important; 
+}
+
+.font-3-4{
+    font-size: 3.4rem !important; 
+}
+.font-3-3{
+    font-size: 3.3rem !important; 
+}
+.font-3-2{
+    font-size: 3.2rem !important; 
+}
+.font-3-1{
+    font-size: 3.1rem !important; 
+}
+.font-3{
+    font-size: 3rem !important; 
+}
+.font-2-9{  
+    font-size: 2.9rem !important; 
+}
+.font-2-8{
+    font-size: 2.8rem !important; 
+}
+.font-2-6{
+    font-size: 2.6rem !important; 
+}
+.font-2-7{
+    font-size: 2.7rem !important; 
+}
+.font-2-5{
+    font-size: 2.5rem !important; 
+}
+.font-2-4{
+    font-size: 2.4rem !important; 
+}
+.font-2-3{
+    font-size: 2.3rem !important; 
+}
+.font-2-2{
+    font-size: 2.2rem !important; 
+}
+.font-2-1{
+    font-size: 2.1rem !important; 
+}
+.font-2{
+    font-size: 2rem !important; 
+}
+
+.font-1-9{ 
+    font-size: 1.9rem;
+}
+.font-1-8{ 
+    font-size: 1.8rem;
+}
+.font-1-7{ 
+    font-size: 1.7rem;
+}
+.font-1-6{ 
+    font-size: 1.6rem;
+}
+.font-1-5{ 
+    font-size: 1.5rem;
+}
+.font-1-4{
+    font-size: 1.4rem;
+}
+.font-1-3{
+    font-size: 1.3rem;
+}
+.font-1-2{
+    font-size: 1.2rem;
+}
+.font-1-1{
+    font-size: 1.1rem;
+}
+.font-1{
+    font-size: 1rem;  
+}
+
+.font-inherit{
+    font-size:inherit;
+}
+
+
+.gy-6{
+    --bs-gutter-y: 4rem;
+}
+
+
+.mt-6{
+    margin-top: 7rem!important;
+
+}
+.mt-20{
+    margin-top: 20rem!important;
+
+}
+.mt-22{
+    margin-top: 22rem!important;
+
+}
+.mt-0-5-{
+    margin-top: -0.5rem;
+
+}
+
+
+
+
+.font-light{
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.font-family-cursive{
+    font-family: cursive !important;
+}
+
+
+
+
+
+
+.display-inline{   
+    display: inline !important;
+}
+
+.display-inline-block{   
+    display: inline-block !important;
+}
+
+.background-hover:hover{
+    background: var(--color-grey-2);
+}
+
+@media(max-width:600px){     
+    .background-hover:hover{
+        background: inherit;
+    }
+}
+
+
+.display-flex{   
+    display: flex !important;
+}
+.flex-1{   
+    flex: 1;
+}
+.display-flex-direction-column{   
+    flex-direction: column;
+}
+.flex-direction-column{   
+    flex-direction: column;
+}
+.display-flex-j-c{
+    display: flex;
+    justify-content: center;
+}
+
+.flex-all-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+.justify-content-center{
+    justify-content: center;
+}
+
+/* text-sm-end */
+
+@media (min-width: 576px){
+    .justify-content-sm-center{
+        justify-content: center;
+    
+    }
+}
+@media (min-width:768px){
+    .justify-content-md-center{
+        justify-content: center;
+    
+    }
+}
+@media (min-width: 992px){
+    .justify-content-lg-center{
+        justify-content: center;
+    
+    }
+}
+@media (min-width: 1200px){
+    .justify-content-lg-center{
+        justify-content: center;
+    
+    }
+}
+@media (min-width: 1400px){
+    .justify-content-lg-center{
+        justify-content: center;
+    
+    }
+}
+
+
+
+.justify-content-space-between{
+    justify-content: space-between;
+}
+.justify-content-space-around{
+    justify-content: space-around;
+}
+
+.justify-content-end{
+    justify-content: end;
+}
+
+
+.no-wrap{
+    flex-wrap: nowrap;   
+}
+
+.align-item-center{
+    align-items: center;
+}
+
+.opacity-0{
+    opacity: 0; 
+}
+
+.display-none{
+    display: none !important;   
+}
+
+
+.box-shadow-normal{
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.1);
+}
+
+
+.border-bottom{
+    border-bottom: 1px solid var(--color-grey);
+}
+
+
+
+
+.border-radius-5{
+    border-radius: 5px;
+}
+.border-radius-10{
+    border-radius: 10px;
+}
+.border-radius-15{
+    border-radius: 15px;
+}
+.border-radius-20{  
+    border-radius: 20px;
+}
+.border-radius-25{  
+    border-radius: 25px;
+}
+.border-radius-circle{  
+    border-radius: 50%;
+}
+
+
+.border-grey {
+   border: 1px solid #0e0e0e26;
+}
+
+
+.border-grey-light {
+    border: 1px solid #0e0e0e26;
+}
+
+
+.background-primary{
+    background-color: var(--color-primary);
+}
+.background-secondary{
+    background-color: var(--color-secondary);
+}
+.background-white{
+    background-color: var(--color-white);
+}
+.background-transparent{
+    background-color: transparent;
+}
+.background-black{
+    background-color: var(--color-black);
+}
+.background-yellow{
+    background-color: var(--color-yellow);
+}
+.background-aqua{
+    background-color: var(--color-aqua);
+}
+.background-green{
+    background-color: var(--color-green);
+}
+.background-red{
+    background-color: var(--color-red);
+}
+
+
+.background-transparent{
+    background-color: transparent;
+}
+
+
+
+
+.text-color-primary{
+    color: var(--color-primary);
+}
+.text-color-secondary{
+    color: var(--color-secondary);
+}
+
+.text-color-grey{
+    color: var(--color-grey);
+}
+.text-color-grey-2{
+    color: var(--color-grey-2);
+}
+.text-color-grey-light{
+    color: var(--color-light-grey);
+}
+.text-color-grey-ori{
+    color: var(--color-grey-ori);
+}
+
+
+.text-color-black{
+    color: var(--color-black);
+}
+
+.text-color-white{
+    color: var(--color-white);
+}
+.text-color-red{  
+    color: var(--color-red);
+}
+
+.text-color-link{  
+    color: var(--color-link);
+}
+.text-color-ccc{  
+    color: var(--color-ccc);
+}
+
+
+.text-right{
+    text-align: right;
+}
+.text-left{ 
+    text-align: left;
+}
+
+
+.font-size-inherit{
+    font-size:inherit;  
+}
+
+
+.overfloy-y-hidden{
+    overflow-y: hidden;
+}
+
+
+.hide-scroll-bar::-webkit-scrollbar {  
+    width: 0 !important;   /* hide scroll bar  */
+}
+
+
+
+.input{
+    border: none;
+    /* background: transparent;    */
+}
+.input:focus{
+    outline: none;
+}
+
+.textarea{ 
+    background: transparent;
+
+}
+.textarea:focus{
+    outline: none;
+}
+
+a{
+    color: inherit;
+}
+
+
+.a:hover{
+    /* color: inherit; */
+}
+
+.a{
+    text-decoration: none;
+    /* color: inherit; */
+}
+
+.a:active{  
+    color: inherit;
+}
+
+
+.li{
+    list-style: none;
+}
+
+.cursor-p{
+    cursor: pointer;
+}
+
+
+::-moz-selection { /* Code for Firefox */
+    background-color: var(--color-primary);
+    color: #ffff; 
+    transition: all .1s; 
+}
+
+::selection {
+      background-color: var(--color-primary);
+    color:#ffff ;   
+    transition: all .1s; 
+}
+
+
+.high-light-text{
+    font-weight: bold;
+    font-size: 20rem;
+    color:var(--color-black);
+
+}
+
+
+
+
+@media   (max-width: 1329px) {   
+       
+    :root {    
+        --page-content-width: 84%;   
+    }
+}
+@media   (max-width: 1030px) {   
+       
+    :root {     
+        --page-content-width: 94%;   
+    }
+}
+
+
+@media   (max-width: 394px) {   
+       
+    html {       
+        /* font-size: 53%; */
+    }
+}
+
+
+

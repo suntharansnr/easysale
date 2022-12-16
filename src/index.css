@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.owl-stage{
+  transform: translate3d(-1424px, 0px, 0px); transition: all 0.35s ease 0s; width: 3382px
+}
+
+.owl-item{
+  width: 148px; margin-right: 30px;
+}
+
+.services-item{
+  visibility: visible;-webkit-animation-delay: 0.2s; -moz-animation-delay: 0.2s; animation-delay: 0.2s;
+}
+
+.page-header{
+  background: url(assets/img/banner1.jpg);
+}
+
+
+
