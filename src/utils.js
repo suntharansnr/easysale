@@ -1,4 +1,4 @@
-export const base_url = "http://localhost/laravelprojects/classified/directdeals";
+export const base_url = "http://local.easysale";
 // export const base_url = "https://backendeasysale.laravelhelper.monster";
 export const ratings = [
   {

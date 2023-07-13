@@ -1,43 +1,42 @@
 import React from 'react'
 
 function Counter() {
+    const counters = [
+        {
+            icon: "lni-layers",
+            value: 8325,
+            label: "Ad Posted"
+        },
+        {
+            icon: "lni-users",
+            value: 5487,
+            label: "Members"
+        },
+        {
+            icon: "lni-briefcase",
+            value: 2012,
+            label: "Premium Ads"
+        },
+        {
+            icon: "lni-map",
+            value: 200,
+            label: "Locations"
+        }
+    ];
     return (
         <div>
             <section class="counter-section section-padding">
                 <div class="container">
                     <div class="row">
-
-                        <div class="col-md-3 col-sm-6 work-counter-widget">
-                            <div class="counter">
-                                <div class="icon"><i class="lni-layers"></i></div>
-                                <h2 class="counterUp">8325</h2>
-                                <p>Ad Posted</p>
+                    {counters.map((counter, index) => (
+                            <div className="col-md-3 col-sm-6 work-counter-widget" key={index}>
+                                <div className="counter">
+                                    <div className="icon"><i className={counter.icon}></i></div>
+                                    <h2 className="counterUp">{counter.value}</h2>
+                                    <p>{counter.label}</p>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 work-counter-widget">
-                            <div class="counter">
-                                <div class="icon"><i class="lni-users"></i></div>
-                                <h2 class="counterUp">5487</h2>
-                                <p>Members</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 work-counter-widget">
-                            <div class="counter">
-                                <div class="icon"><i class="lni-briefcase"></i></div>
-                                <h2 class="counterUp">2012</h2>
-                                <p>Premium Ads</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 work-counter-widget">
-                            <div class="counter">
-                                <div class="icon"><i class="lni-map"></i></div>
-                                <h2 class="counterUp">200</h2>
-                                <p>Locations</p>
-                            </div>
-                        </div>
+                    ))}
                     </div>
                 </div>
             </section>
