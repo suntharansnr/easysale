@@ -35,6 +35,7 @@ import { storeCreateReducer, storeDeleteReducer, storeDetailsReducer, storeListR
 import clickSlice from './Redux/slices/clickSlice';
 import { packageCreateReducer, packageDeleteReducer, packageDetailsReducer, packageListReducer, packageUpdateReducer } from './reducers/packageReducers';
 import { dashboardListReducer } from './reducers/dashboardReducers';
+import { reportDeleteReducer, reportDetailsReducer, reportListReducer } from './reducers/reportReducers';
 
 const initialState = {
   userSignin: {
@@ -64,6 +65,10 @@ const reducer = combineReducers({
   productReviewCreate: productReviewCreateReducer,
   getDataByCategory: getDataByCategory,
   productImageList: productImageListReducer,
+
+  reportList: reportListReducer,
+  reportDetails: reportDetailsReducer,
+  reportDelete: reportDeleteReducer,
 
   storeList: storeListReducer,
   storeDetails: storeDetailsReducer,

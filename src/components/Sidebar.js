@@ -64,10 +64,12 @@ function Sidebar() {
                         </Link>
                     </li>
                     <li>
+                        <Link to={`/reports`}>
                         <a href="offermessages.html">
                             <i class="lni-envelope"></i>
                             <span>Offers/Messages</span>
                         </a>
+                        </Link>
                     </li>
                     <li>
                         <Link to={`/payments`}>

@@ -36,6 +36,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Membership from "./pages/Membeship";
 import OrderScreen from "./pages/OrderScreen";
 import ProductEditScreen from "./components/ProductEditScreen";
+import Report from "./pages/Report";
+import Practice from "./pages/Practice";
 
 function App() {
 
@@ -58,14 +60,10 @@ function App() {
   const handleClick = (e) => {
     console.log(e.target);
 
-
-
     const mobileNavOpenIcon = e.target.closest('#mobileNav-open-icon');
     const LocationIcon = e.target.closest('.show-btn-location');
     const NearbyLocationIcon = e.target.closest('.show-btn-nearby-location');
     const PostAdMobileBottom = e.target.closest("#Post-ad-mobile");
-
-
 
     if (mobileNavOpenIcon) {
       dispatch(ShowMobileNavFN());
@@ -79,13 +77,9 @@ function App() {
     if (NearbyLocationIcon) {
       dispatch(ShowNearbyLocationPopUpFN());
     }
-
-
-
   };
 
   return (<Router>
-
     <Routes>
       <Route path='/' element={<AppLayout />} >
         <Route exact path='/' element={<Homepage />} />
@@ -132,6 +126,7 @@ function App() {
         />
 
         <Route exact path='/dashboard' element={<Dashboard />} />
+        <Route exact path='/reports' element={<Report />} />
         <Route exact path='/my-stores' element={<Mystores />} />
         <Route exact path='/favorite' element={<Favorite />} />
         <Route exact path='/profile' element={<Profile />} />
@@ -186,12 +181,11 @@ function App() {
             <StorePage></StorePage>
             <StorePageMobileNav ShowstoreMobileNav={clicks.storeMobileNav} ></StorePageMobileNav>
             <BottomMobile></BottomMobile>
-
           </>
         } />
       </Route>
+      <Route exact path='/practice' element={<Practice />} />
     </Routes>
-
   </Router>);
 }
 
