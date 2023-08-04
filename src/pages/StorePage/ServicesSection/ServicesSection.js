@@ -1,23 +1,22 @@
 import styled from 'styled-components';
 import ShowMoreTxt from '../../../components/UI/ShowMoreTxt/ShowMoreTxt';
+import { base_url } from '../../../utils';
 
-function ServicesSection({className="",services,sliceNum=-1}) {
+function ServicesSection({className="",services,sliceNum=3}) {
   return (
     <DIV className={`${className} `}>
-            <div className="ServicesSection-wrapper background-aqu ">
-
+            <div className="ServicesSection-wrapper background-aqu">
               <div className="services-section-row row justify-content-center">
                 {
                     [...services.slice(sliceNum)].map(service=>(
-                    <div className="Ad-item col-6 text-center box-shadow-normal ms-3 me-3 mt-2 mb-3 pt-5 pb-5 ps-3 pe-3">
-                            <img className='border-radius-circle' src={'/'+service.img_path} alt="" />
+                    <div className="Ad-item col-6 text-center box-shadow-normal ms-3 me-3 mt-2 mb-3 pt-5 pb-5 ps-3 pe-3" key={service.id}>
+                            <img className='border-radius-circle' src={base_url +'/'+service.img_path} alt="" />
                             <div className="">
                                 <h3 className="title fw-bold  mt-5">{service.title}</h3>
                                 <div className="description">
                                       <ShowMoreTxt className='text-center font-1-5 text-color-grey-ori' showMoreTextClassName={'text-color-black fw-bold '}  paragraph={service.content} words={20}/>
                                 </div>
                             </div>
-
                     </div>
                     ))
                 }

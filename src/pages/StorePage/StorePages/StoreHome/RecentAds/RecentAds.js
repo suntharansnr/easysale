@@ -1,29 +1,23 @@
 import styled from 'styled-components';
 import Ad from '../../../Ad/Ad';
 
-
-
 function RecentAds({className="",columnSizeClassName="",AllAds,sliceNum=-1}) {
   return (
     <DIV className={`${className}`}>
          <div className="RecentAds-wrapper">
-
-
              <div className="all-ads-container row justify-content-between gy-5" >
                 {
                     [...AllAds.slice(sliceNum)].map(ad=>(
-                        <div key={Math.random()} className={`ad-col col-3 p-0 ms-3 me-3 mt-4 mb-3 ${columnSizeClassName}`}>
+                        <div key={ad.id} className={`ad-col col-3 p-0 ms-3 me-3 mt-4 mb-3 ${columnSizeClassName}`}>
                                 <Ad  className='cursor-p' adDetails={ad}></Ad>
                         </div>
                     ))
                 }
-
              </div>
          </div>
     </DIV>
   );
 }
-
 
 const DIV=styled.div`
     width: 100%;

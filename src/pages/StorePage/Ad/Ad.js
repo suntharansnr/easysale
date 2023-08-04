@@ -12,7 +12,7 @@ function Ad({className="",adDetails}) {
                 <div className="row">
 
                     <div className="col-12">
-                        <img className='w-100' src={adDetails.feature_img ? base_url+`/uploads/images/thumbs/${adDetails.feature_img['media_name']}` : base_url+'/assets/img-not-found.jpg'} alt="" />
+                        <img className='w-100' src={adDetails.feature_img ? base_url+`/${adDetails.feature_img}` : base_url+'/assets/img-not-found.jpg'} alt="" />
                     </div>
 
                     <div className="ad-details ps-4 pe-4 pb-4">

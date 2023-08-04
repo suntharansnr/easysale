@@ -58,8 +58,6 @@ function App() {
 
 
   const handleClick = (e) => {
-    console.log(e.target);
-
     const mobileNavOpenIcon = e.target.closest('#mobileNav-open-icon');
     const LocationIcon = e.target.closest('.show-btn-location');
     const NearbyLocationIcon = e.target.closest('.show-btn-nearby-location');

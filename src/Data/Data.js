@@ -6,7 +6,6 @@ import LocationIconSvg from '@mui/icons-material/FmdGoodOutlined';
 
 
 export const AllAds=[
- 
     {
         image:"https://i.ikman-st.com/toyota-premio-g-superior-2019-for-sale-colombo-540/12fa217d-0ce3-41ef-94b7-264afa8bbf71/160/120/cropped.webp",
         productName:"Honda Dio 2015",
@@ -108,8 +107,6 @@ export const AllAds=[
 
     
     },
-
-    
     {
         image:"https://www.saleme.lk/saleme/images/uploads/87773/thumb/saleme_62109cfa93025.jpg",
         productName:"Nissan Car 2005",

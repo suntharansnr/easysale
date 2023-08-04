@@ -15,7 +15,6 @@ function ShopLayout() {
   const clicks = useSelector(selectClicks);
   const dispatch = useDispatch();
 
-
   useEffect(() => {
 
     // scroll to top
@@ -27,18 +26,11 @@ function ShopLayout() {
 
   }, [clicks.showOverlay]);
 
-
   const handleClick = (e) => {
-    console.log(e.target);
-
-
-
     const mobileNavOpenIcon = e.target.closest('#mobileNav-open-icon');
     const LocationIcon = e.target.closest('.show-btn-location');
     const NearbyLocationIcon = e.target.closest('.show-btn-nearby-location');
     const PostAdMobileBottom = e.target.closest("#Post-ad-mobile");
-
-
 
     if (mobileNavOpenIcon) {
       dispatch(ShowMobileNavFN());
@@ -52,9 +44,6 @@ function ShopLayout() {
     if (NearbyLocationIcon) {
       dispatch(ShowNearbyLocationPopUpFN());
     }
-
-
-
   };
 
   return (
@@ -63,7 +52,7 @@ function ShopLayout() {
           <div className="app-content" onClick={handleClick}>
             <Outlet />
           </div>
-          <MobileNav showNav={clicks.showMobileNav} className={`w-35  p-3 `}></MobileNav>
+          <MobileNav showNav={clicks.showMobileNav} className={`w-35  p-3`}></MobileNav>
           {clicks.showOverlay && <OverlayFull></OverlayFull>}
       </div>
     </DIV>

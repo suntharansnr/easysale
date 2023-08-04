@@ -58,8 +58,8 @@ function MobileNavComp({className=""}) {
                 <div className="mobile-nav-list text-color-grey mt-4 pb-5">
 
                     {
-                        navList.map(navitem=>(
-                            <MobileNavItem  className='mt-3' svgIcon={navitem.Icon} ItemName={navitem.itemName}  link={navitem.link}  ></MobileNavItem>
+                        navList.map((navitem,i)=>(
+                            <MobileNavItem key={i}  className='mt-3' svgIcon={navitem.Icon} ItemName={navitem.itemName}  link={navitem.link}  ></MobileNavItem>
                         ))
                     }
 

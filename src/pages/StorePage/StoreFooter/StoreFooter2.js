@@ -2,15 +2,10 @@ import styled from 'styled-components';
 import FooterContactDetailsItem from './FooterContactDetailsItem';
 import Map from '../../../components/UI/Map/Map';
 
-
-
-
 function Footer({className="",storeData}) {
   return (
     <DIV className={`${className} background-yellow`}>
-         <div className="Footer-wrapper row  gy-5 pt-5  ">
-
-
+         <div className="Footer-wrapper row  gy-5 pt-5">
                 {/* Details */}
                 <div className="col-lg-6">
                             <FooterContactDetailsItem   className='mt-4  footer-detail-item' label={'Address'} PlaceName={storeData ? storeData.store_name : ''}    detail={storeData.shop_theme ? storeData.shop_theme.Footer_adress : ''} />
@@ -23,15 +18,11 @@ function Footer({className="",storeData}) {
                           <Map className=' border-radius-5 '></Map>
                   </div>
 
-
-
-
                    {/* CopyRight */}
                   <div className=" text-color-ccc col text-center ">
-                  © {storeData.storeName}. All rights reserved. 
+                  © {storeData.store_name}. All rights reserved. 
                             <span> | </span>
-                        Copyright © 2018 SaleMe.lk PVT LTD 
-
+                        Copyright © 2023 easysale.lk PVT LTD 
                   </div>
          </div>
     </DIV>
@@ -53,10 +44,8 @@ const DIV=styled.footer`
     
     .Footer-wrapper{
       width: var(--storeWidth);
-        margin-left: auto;
-        margin-right: auto; 
-        /* background:yellow;  */
-
+      margin-left: auto;
+      margin-right: auto; 
     }
 `;
 
