@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Loader from '../components/UI/Loader/Loader';
+import Breadcrumb from '../components/Breadcrumb';
 
 function Faq() {
     const [faqs, setFaqs] = useState([])
@@ -16,21 +18,7 @@ function Faq() {
 
     return (
         <div>
-            <div class="page-header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="breadcrumb-wrapper">
-                                <h2 class="product-title">FAQ</h2>
-                                <ol class="breadcrumb">
-                                    <li><a href="#">Home /</a></li>
-                                    <li class="current">FAQ</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Breadcrumb activePage="FAQ"/>
 
             <div class="faq section-padding">
                 <div class="container">
@@ -42,7 +30,7 @@ function Faq() {
 
                             <div class="panel-group" id="accordion">
                                 {
-                                    faqs.length > 0 && (
+                                    faqs.length > 0 ? (
                                         faqs.map((row, key) => (
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
@@ -59,7 +47,7 @@ function Faq() {
                                                 </div>
                                             </div>
                                         ))
-                                    )
+                                    ) : <Loader/>
                                 }
                             </div>
 

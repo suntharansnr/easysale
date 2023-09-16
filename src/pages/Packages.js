@@ -1,24 +1,11 @@
 import React from 'react'
 import Subscribes from '../components/Subscribes'
+import Breadcrumb from '../components/Breadcrumb';
 
 function Packages() {
     return (
         <div>
-            <div class="page-header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="breadcrumb-wrapper">
-                                <h2 class="product-title">Pricing Packages</h2>
-                                <ol class="breadcrumb">
-                                    <li><a href="#">Home /</a></li>
-                                    <li class="current">Package</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Breadcrumb activePage="Pricing Packages"/>
             <section id="pricing-table" class="section-padding">
                 <div class="container">
                     <div class="row">

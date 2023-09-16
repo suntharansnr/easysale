@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { detailsUser, updateUserProfile } from '../actions/userActions';
 import Sidebar from '../components/Sidebar';
 import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants';
+import Breadcrumb from '../components/Breadcrumb';
 
 function Profile(props) {
 
@@ -58,21 +59,7 @@ function Profile(props) {
 
     return (
         <div>
-            <div class="page-header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="breadcrumb-wrapper">
-                                <h2 class="product-title">Dashbord</h2>
-                                <ol class="breadcrumb">
-                                    <li><a href="#">Home /</a></li>
-                                    <li class="current">Dashboard</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Breadcrumb activePage="Profile"/>
             <div id="content" class="section-padding">
                 <div class="container">
                     <div class="row">

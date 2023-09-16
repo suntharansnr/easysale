@@ -1,15 +1,11 @@
 import styled from 'styled-components';
 import BottomMobileComp from './BottomMobileComp';
 
-
-
 function BottomMobile({className=""}) {
   return (
     <DIV className={`${className}`}>
         <div className="BottomMobile-wrapper">
-
                <BottomMobileComp></BottomMobileComp>
-
         </div>
     </DIV>
   );
@@ -26,9 +22,6 @@ const DIV=styled.div`
         @media(max-width:600px){     
                       display: flex;
         }
-
-
-
 
         .BottomMobile-wrapper{
             width:var(--page-content-width);

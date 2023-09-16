@@ -33,7 +33,7 @@ function Featured() {
                 items:3
             },
             1000:{
-                items:5
+                items:3
             }
         }
     };
@@ -49,7 +49,7 @@ function Featured() {
                                 <OwlCarousel id="categories-icon-slider" className="categories-wrapper owl-theme" {...options}>
                                     {
                                         products.map((row, key) => (
-                                            <div className="item">
+                                            <div className="item" key={key}>
                                                 <div className="product-item">
                                                     <div className="carousel-thumb">
                                                         <img className="img-fluid" src={row.feature_img ? `${process.env.REACT_APP_API_URL}/uploads/images/thumbs/${row.feature_img['media_name']}` : `${process.env.REACT_APP_API_URL}/assets/img-not-found.jpg`} alt="" />

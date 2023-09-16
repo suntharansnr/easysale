@@ -5,6 +5,7 @@ import axios from 'axios';
 import Subscribes from "../components/Subscribes";
 import MyOwlCarousel from "../components/owlCarousel";
 import Swal from 'sweetalert2';
+import Breadcrumb from "../components/Breadcrumb";
 
 function Singlead() {
 
@@ -68,21 +69,7 @@ function Singlead() {
 
     return (
         <div>
-            <div className="page-header">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="breadcrumb-wrapper">
-                                <h2 className="product-title">Details</h2>
-                                <ol className="breadcrumb">
-                                    <li><a href="#">Home /</a></li>
-                                    <li className="current">Details</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Breadcrumb activePage="Details"/>
             <div className="section-padding">
                 <div className="container">
                     <div className="product-info row">

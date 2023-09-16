@@ -7,6 +7,7 @@ import { base_url } from '../utils';
 import Sidebar from '../components/Sidebar';
 import { listDashboard } from '../actions/dashboardActions';
 import Swal from 'sweetalert2';
+import Breadcrumb from '../components/Breadcrumb';
 
 function Dashboard(props) {
 
@@ -76,21 +77,7 @@ function Dashboard(props) {
 
     return (
         <div>
-            <div class="page-header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="breadcrumb-wrapper">
-                                <h2 class="product-title">Dashbord</h2>
-                                <ol class="breadcrumb">
-                                    <li><a href="#">Home /</a></li>
-                                    <li class="current">Dashboard</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Breadcrumb activePage="Dashboard"/>
             <div id="content" class="section-padding">
                 <div class="container">
                     <div class="row">

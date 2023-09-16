@@ -4,6 +4,7 @@ import axios from 'axios'
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
+import Breadcrumb from "../components/Breadcrumb";
 
 function Contact() {
 
@@ -50,22 +51,7 @@ function Contact() {
 
     return (
         <div>
-            <div class="page-header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="breadcrumb-wrapper">
-                                <h2 class="product-title">Contact Us</h2>
-                                <ol class="breadcrumb">
-                                    <li><a href="#">Home /</a></li>
-                                    <li class="current">Contact Us</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            <Breadcrumb activePage="Contact Us"/>
 
             <section id="google-map-area">
                 <div class="container">

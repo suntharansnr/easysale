@@ -38,12 +38,12 @@ import OrderScreen from "./pages/OrderScreen";
 import ProductEditScreen from "./components/ProductEditScreen";
 import Report from "./pages/Report";
 import Practice from "./pages/Practice";
+import Slides from "./practicecomponents/Slider";
 
 function App() {
 
   const clicks = useSelector(selectClicks);
   const dispatch = useDispatch();
-
 
   useEffect(() => {
 
@@ -182,7 +182,8 @@ function App() {
           </>
         } />
       </Route>
-      <Route exact path='/practice' element={<Practice />} />
+      <Route exact path='/practice' element={<Practice/>} />
+      <Route exact path='/slider' element={<Slides  />} />
     </Routes>
   </Router>);
 }

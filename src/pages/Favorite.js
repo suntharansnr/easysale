@@ -5,6 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 import { listFavorites } from '../actions/productActions';
 import { base_url } from '../utils';
 import Sidebar from '../components/Sidebar';
+import Breadcrumb from '../components/Breadcrumb';
 
 function Favorite(props) {
 
@@ -41,21 +42,7 @@ function Favorite(props) {
 
     return (
         <div>
-            <div class="page-header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="breadcrumb-wrapper">
-                                <h2 class="product-title">Dashbord</h2>
-                                <ol class="breadcrumb">
-                                    <li><a href="#">Home /</a></li>
-                                    <li class="current">Dashboard</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Breadcrumb activePage="Favorite"/>
             <div id="content" class="section-padding">
                 <div class="container">
                     <div class="row">

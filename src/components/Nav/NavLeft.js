@@ -9,25 +9,17 @@ function NavLeft({className=""}) {
     <DIV className={`${className}`}>
          <div className="NavLeft-wrapper">
              <div className="row align-items-center">
-
                             <MenuIcon id="mobileNav-open-icon" className='mobile-nav-open-icon font-4-5  display-none text-color-white'></MenuIcon>
-                           
-                           
                             <div className="logo col-4 cursor-p">
                                 <Link to="/">
                                     <Logo></Logo>
                                 </Link>
                             </div>
-
-
                             <div className="col-8  display-flex width-800-display-none"> 
                                         <Link to="/allAds" className="  all-ads text-color-white ms-2 p-1 ms-5   fw-bold  font-1-6 a "   >  All Ads</Link>
                                         <Link to="/ " className="nav-left-link  ms-3 text-color-white p-1   fw-bold  font-1-6 a " >  සිංහල</Link>
                                         <Link to="/ " className="nav-left-link  ms-2 text-color-white p-1   fw-bold  font-1-6 a " >  தமிழ் </Link>
-             
-
                             </div>
-
              </div>
          </div>
     </DIV>

@@ -4,6 +4,7 @@ import { Link, useParams, useLocation, Navigate, useNavigate } from 'react-route
 import { listProducts } from '../actions/productActions';
 import { base_url } from '../utils';
 import Favoritebtn from '../components/Favoritebtn';
+import Breadcrumb from '../components/Breadcrumb';
 
 export default function SearchScreen(props) {
   const location = useLocation();
@@ -64,21 +65,7 @@ export default function SearchScreen(props) {
 
   return (
     <div>
-      <div className="page-header">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-              <div className="breadcrumb-wrapper">
-                <h2 className="product-title">Listings</h2>
-                <ol className="breadcrumb">
-                  <li><a href="#">Home /</a></li>
-                  <li className="current">Listings</li>
-                </ol>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Breadcrumb activePage="Listings"/>
       <div className="main-container section-padding">
         <div className="container">
           <div className="row">

@@ -8,6 +8,7 @@ import { listPackages } from '../actions/packageActions';
 import { base_url } from '../utils';
 import Sidebar from '../components/Sidebar';
 import Pricing from '../components/pricing';
+import Breadcrumb from '../components/Breadcrumb';
 
 export default function Membership(props) {
 
@@ -29,21 +30,7 @@ export default function Membership(props) {
 
     return (
         <div>
-            <div class="page-header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="breadcrumb-wrapper">
-                                <h2 class="product-title">Dashbord</h2>
-                                <ol class="breadcrumb">
-                                    <li><a href="#">Home /</a></li>
-                                    <li class="current">Dashboard</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Breadcrumb activePage="Packages"/>
             <div id="content" class="section-padding">
                 <div class="container">
                     <div class="row">

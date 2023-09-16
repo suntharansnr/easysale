@@ -4,6 +4,8 @@ import { Link,useLocation,useNavigate } from 'react-router-dom';
 import { signin } from '../actions/userActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import Breadcrumb from '../components/Breadcrumb';
+import Swal from 'sweetalert2';
 
 function Login(props) {
     const [email, setEmail] = useState('');
@@ -26,24 +28,19 @@ function Login(props) {
       }
     }, [userInfo]);
 
+    useEffect(() => {
+       if(error){
+        Swal.fire({
+            text: error,
+            icon: "error"
+        })
+       }
+    }, [error])
+    
+
     return (
         <div>
-            <div className="page-header">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="breadcrumb-wrapper">
-                                <h2 className="product-title">Login</h2>
-                                <ol className="breadcrumb">
-                                    <li><a href="index-2.html">Home /</a></li>
-                                    <li className="current">Login</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            <Breadcrumb activePage="Login"/>
 
             <section className="login section-padding">
                 <div className="container">
@@ -74,7 +71,11 @@ function Login(props) {
                                         <a className="forgetpassword" href="forgot-password.html">Forgot Password?</a>
                                     </div>
                                     <div className="text-center">
-                                        <button className="btn btn-common log-btn" type='submit' onClick={submitHandler}>Submit</button>
+                                        <button className="btn btn-common log-btn" disabled={loading ? 'true' : ''} type='submit' onClick={submitHandler}>
+                                        {
+                                            loading ? <LoadingBox/> : 'Submit'
+                                        }
+                                        </button>
                                     </div>
                                 </form>
                             </div>

@@ -26,7 +26,7 @@ function Blog() {
                     {
                         blogs.length > 0 && (
                             blogs.map((row, key) => (
-                                <div class="col-lg-4 col-md-6 col-xs-12 blog-item">
+                                <div class="col-lg-4 col-md-6 col-xs-12 blog-item" key={key}>
                                     <Link to={`/blog/${row.slug}`}>
                                     <div class="blog-item-wrapper">
                                         <div class="blog-item-img">

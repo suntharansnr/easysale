@@ -15,7 +15,7 @@ function ShopHeader() {
                     data-testid="MenuIcon" id="store-page-menu">
                     <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
                 </svg>
-                <h1 className="text-center ms-auto me-auto  ">plusiune devs</h1>
+                <h1 className="text-center ms-auto me-auto">plusiune devs</h1>
             </div>
             <div className="sc-furwcr hxcykW background-aqu " id="store-nav-deskstop">
                 <nav className="display-flex justify-content-center align-items-center    ">

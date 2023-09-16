@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios';
+import CreateComment from "../components/Comments/CreateComment";
+import Comment from "../components/Comments/Comment";
+import Breadcrumb from "../components/Breadcrumb";
 
 function Singleblog() {
   const navigate = useNavigate();
@@ -9,7 +12,8 @@ function Singleblog() {
 
   const [blog, setBlog] = useState([])
   const [related, setRelated] = useState([])
-
+  const [comments, setComments] = useState([])
+  const [created_at,setCreatedAt] = useState('');
   useEffect(() => {
       fetchProduct()
   }, [])
@@ -18,62 +22,47 @@ function Singleblog() {
       await axios.get(`${process.env.REACT_APP_API_URL}/api/blog/${slug}`).then(({ data }) => {
           setBlog(data['post'])
           setRelated(data['related_ads'])
+          setCreatedAt(data['created_at'])
+          setComments(data['comments'])
       })
   }
 
   return (
     <div>
-      <div class="page-header">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="breadcrumb-wrapper">
-                <h2 class="product-title">Blog Details</h2>
-                <ol class="breadcrumb">
-                  <li><a href="#">Home /</a></li>
-                  <li class="current">Blog Details</li>
-                </ol>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Breadcrumb activePage="Single blog"/>
 
       <div id="content" class="section-padding">
         <div class="container">
           <div class="row">
             <div class="col-lg-8 col-md-12 col-xs-12">
-
               <div class="blog-post single-post">
-
                 <div class="post-thumb">
-                  <a href="#"><img class="img-fluid" src="assets/img/blog/blog1.jpg" alt=""/></a>
+                  <a href="#">
+                    <img className="img-fluid" src={blog.feature_img ? `${process.env.REACT_APP_API_URL}/uploads/images/thumbs/${blog.feature_img['media_name']}` : `${process.env.REACT_APP_API_URL}/assets/img-not-found.jpg`} />
+                  </a>
                   <div class="hover-wrap">
                   </div>
                 </div>
 
-
                 <div class="post-content">
                   <h2 class="post-title"><a href="single-post.html">{blog.title}</a></h2>
                   <div class="meta">
-                    <span class="meta-part"><a href="#"><i class="lni-user"></i> Clasihub</a></span>
-                    <span class="meta-part"><a href="#"><i class="lni-alarm-clock"></i> June 21, 2018</a></span>
+                    <span class="meta-part"><a href="#"><i class="lni-user"></i> {blog?.author?.name}</a></span>
+                    <span class="meta-part"><a href="#"><i class="lni-alarm-clock"></i> {created_at}</a></span>
                     <span class="meta-part"><a href="#"><i class="lni-folder"></i> Sticky</a></span>
-                    <span class="meta-part"><a href="#"><i class="lni-comments-alt"></i> 1 Comments</a></span>
+                    <span class="meta-part"><a href="#"><i class="lni-comments-alt"></i> {blog?.comments?.length} Comments</a></span>
                   </div>
                   <div class="entry-summary">
                     {blog.post_content}
                   </div>
                 </div>
-
               </div>
-
 
               <div id="comments">
                 <div class="comment-box">
                   <h3>Comments</h3>
                   <ol class="comments-list">
-                    <li>
+                    {/* <li>
                       <div class="media">
                         <div class="thumb-left">
                           <a href="#">
@@ -108,51 +97,15 @@ function Singleblog() {
                           </div>
                         </li>
                       </ul>
-                    </li>
-                    <li>
-                      <div class="media">
-                        <div class="thumb-left">
-                          <a href="#">
-                            <img class="img-fluid" src="assets/img/blog/user3.jpg" alt=""/>
-                          </a>
-                        </div>
-                        <div class="info-body">
-                          <div class="media-heading">
-                            <h4 class="name">Steven Hawkins</h4>
-                            <span class="comment-date"><i class="lni-alarm-clock"></i> June 21, 2018</span>
-                            <a href="#" class="reply-link"><i class="lni-reply"></i> Reply</a>
-                          </div>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, nemo ipsam eum illo minus voluptatibus ipsa nulla, perferendis aliquid aperiam beatae nihil sapiente eaque atque nesciunt perspiciatis ex saepe, quibusdam..</p>
-                        </div>
-                      </div>
-                    </li>
+                    </li> */}
+                    {
+                      comments && comments.map((comment,i) => (
+                        <Comment fetchProduct={fetchProduct} comment={comment}/>
+                      ))
+                    }
                   </ol>
 
-                  <div id="respond">
-                    <h2 class="respond-title">Leave A Comment</h2>
-                    <form action="#">
-                      <div class="row">
-                        <div class="col-lg-6 col-md-6 col-xs-12">
-                          <div class="form-group">
-                            <input id="author" class="form-control" name="author" type="text" value="" size="30" placeholder="Your Name"/>
-                          </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-xs-12">
-                          <div class="form-group">
-                            <input id="email" class="form-control" name="author" type="text" value="" size="30" placeholder="Your E-Mail"/>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-lg-12 col-md-12col-xs-12">
-                          <div class="form-group">
-                            <textarea id="comment" class="form-control" name="comment" cols="45" rows="8" placeholder="Massage..."></textarea>
-                          </div>
-                          <button type="submit" id="submit" class="btn btn-common">Post Comment</button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
+                  <CreateComment fetchProduct={fetchProduct} post_id={blog.id}/>
 
                 </div>
               </div>

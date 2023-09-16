@@ -2,20 +2,13 @@ import styled from 'styled-components';
 import NavLeft from './NavLeft';
 import NavRight from './NavRight';
 
-
 function NavBar({className=""}) {
 
   return (
     <NAV className={`${className} background-primary`}>
         <div className="Nav-wrapper  row  p-md-4 align-items-center">
                     <NavLeft className=' col-6  nav-left '></NavLeft>
-
-                    <NavRight className='   col-6  width-800-display-none '></NavRight>
-           
-
-
-
-               
+                    <NavRight className='   col-6  width-800-display-none '></NavRight>               
         </div>
     </NAV>
   );
@@ -33,12 +26,10 @@ const NAV=styled.nav`
         margin-right: auto; 
 
         .nav-left{
-              
                 @media(max-width:900px){     
                     width: 100%;
                 }
         }
-
 
         .width-800-display-none{
               @media(max-width:900px){     
@@ -46,10 +37,7 @@ const NAV=styled.nav`
             }
 
         }
-
     }
-
-
 `;
 
 export default NavBar;

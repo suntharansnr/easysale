@@ -3,6 +3,7 @@ import axios from 'axios';
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import Loader from './UI/Loader/Loader';
 
 function Testimonial() {
 
@@ -32,7 +33,7 @@ function Testimonial() {
                 items:3
             },
             1000:{
-                items:5
+                items:4
             }
         }
     };
@@ -66,7 +67,7 @@ function Testimonial() {
                                         ))
                                     }
                                 </OwlCarousel>
-                                : ''
+                                : <Loader/>
                         }
                     </div>
                 </div>

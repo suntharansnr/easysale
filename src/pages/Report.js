@@ -5,6 +5,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { deleteReport, listReports } from '../actions/reportActions';
 import Sidebar from '../components/Sidebar';
 import Swal from 'sweetalert2';
+import Breadcrumb from '../components/Breadcrumb';
 
 function Report(props) {
 
@@ -68,21 +69,7 @@ function Report(props) {
 
     return (
         <div>
-            <div class="page-header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="breadcrumb-wrapper">
-                                <h2 class="product-title">Dashbord</h2>
-                                <ol class="breadcrumb">
-                                    <li><a href="#">Home /</a></li>
-                                    <li class="current">Dashboard</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Breadcrumb activePage="Report"/>
             <div id="content" class="section-padding">
                 <div class="container">
                     <div class="row">
@@ -123,25 +110,25 @@ function Report(props) {
                                                                         <label class="custom-control-label" for="adone"></label>
                                                                     </div>
                                                                 </td>
-                                                                <td class="photo">{row.ad.title}</td>
+                                                                <td class="photo">{row?.ad?.title}</td>
                                                                 <td data-title="Title">
-                                                                    <h3>{row.reason}</h3>
-                                                                    <span>Ad ID: {row.id}</span>
+                                                                    <h3>{row?.reason}</h3>
+                                                                    <span>Ad ID: {row?.id}</span>
                                                                 </td>
                                                                 <td data-title="Category">
                                                                     <span class="adcategories">
-                                                                    {row.email}
+                                                                    {row?.email}
                                                                     </span>
                                                                 </td>
                                                                 <td data-title="Price">
-                                                                    <h3>{row.message}</h3>
+                                                                    <h3>{row?.message}</h3>
                                                                 </td>
                                                                 <td data-title="Action">
                                                                     <div class="btns-actions">
-                                                                        <Link to={`/product/` + row.ad.id}>
+                                                                        <Link to={`/product/` + row?.ad?.id}>
                                                                             <a class="btn-action btn-view" href="#"><i class="lni-eye"></i></a>
                                                                         </Link>
-                                                                        <a class="btn-action btn-delete" href="#" onClick={() => deleteHandler(row.id)}><i class="lni-trash"></i></a>
+                                                                        <a class="btn-action btn-delete" href="#" onClick={() => deleteHandler(row?.id)}><i class="lni-trash"></i></a>
                                                                     </div>
                                                                 </td>
                                                             </tr>

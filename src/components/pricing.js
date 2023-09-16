@@ -48,7 +48,7 @@ function Pricing(packages) {
                     {
                         mpackages.length > 0 ?
                             mpackages.map((row, i) => (
-                                <div className="col-lg-4 col-md-6 col-xs-12">
+                                <div className="col-lg-4 col-md-6 col-xs-12" key={i}>
                                     <div className="table">
                                         <div className="icon">
                                             <i className="lni-gift"></i>

@@ -3,25 +3,12 @@ import Service from '../components/service'
 import Counter from '../components/Counter'
 import Testimonial from '../components/Testimonial'
 import about from '../assets/img/about/about.png'
+import Breadcrumb from '../components/Breadcrumb'
 
 function About() {
     return (
         <div>
-            <div class="page-header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="breadcrumb-wrapper">
-                                <h2 class="product-title">About Us</h2>
-                                <ol class="breadcrumb">
-                                    <li><a href="#">Home /</a></li>
-                                    <li class="current">About Us</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Breadcrumb activePage="About us"/>
             <section id="about" class="section-padding">
                 <div class="container">
                     <div class="row">

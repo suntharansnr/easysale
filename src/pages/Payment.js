@@ -5,6 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 import { listPayments } from '../actions/paymentActions';
 import { base_url } from '../utils';
 import Sidebar from '../components/Sidebar';
+import Breadcrumb from '../components/Breadcrumb';
 
 function Payment(props) {
 
@@ -43,21 +44,7 @@ function Payment(props) {
 
     return (
         <div>
-            <div class="page-header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="breadcrumb-wrapper">
-                                <h2 class="product-title">Dashbord</h2>
-                                <ol class="breadcrumb">
-                                    <li><a href="#">Home /</a></li>
-                                    <li class="current">Dashboard</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Breadcrumb activePage="Payments"/>
             <div id="content" class="section-padding">
                 <div class="container">
                     <div class="row">
