@@ -16,28 +16,28 @@ function Blog() {
     }
 
     return (
-        <section id="blog" class="section-padding">
+        <section id="blog" className="section-padding">
 
-            <div class="container">
-                <h2 class="section-title">
+            <div className="container">
+                <h2 className="section-title">
                     Blog Post
                 </h2>
-                <div class="row">
+                <div className="row">
                     {
                         blogs.length > 0 && (
                             blogs.map((row, key) => (
-                                <div class="col-lg-4 col-md-6 col-xs-12 blog-item" key={key}>
+                                <div className="col-lg-4 col-md-6 col-xs-12 blog-item" key={key}>
                                     <Link to={`/blog/${row.slug}`}>
-                                    <div class="blog-item-wrapper">
-                                        <div class="blog-item-img">
+                                    <div className="blog-item-wrapper">
+                                        <div className="blog-item-img">
                                             <a href="single-post.html">
                                             <img className="img-fluid" src={row.feature_img ? `${process.env.REACT_APP_API_URL}/uploads/images/thumbs/${row.feature_img['media_name']}` : `${process.env.REACT_APP_API_URL}/assets/img-not-found.jpg`} />
                                             </a>
                                         </div>
-                                        <div class="blog-item-text">
-                                            <div class="meta-tags">
-                                                <span class="user float-left"><a href="#"><i class="lni-user"></i> Posted By {row.author}</a></span>
-                                                <span class="date float-right"><i class="lni-calendar"></i> {row.created_at}</span>
+                                        <div className="blog-item-text">
+                                            <div className="meta-tags">
+                                                <span className="user float-left"><a href="#"><i className="lni-user"></i> Posted By {row.author}</a></span>
+                                                <span className="date float-right"><i className="lni-calendar"></i> {row.created_at}</span>
                                             </div>
                                             <h3>
                                                 <a href="single-post.html">{row.title}</a>
@@ -47,7 +47,7 @@ function Blog() {
                                                 `${row.post_content.substring(0, 250)}` : row.post_content
                                                 }
                                             </p>
-                                            <a href="single-post.html" class="btn btn-common">Read More</a>
+                                            <a href="single-post.html" className="btn btn-common">Read More</a>
                                         </div>
                                     </div>
                                     </Link>

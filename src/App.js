@@ -39,6 +39,7 @@ import ProductEditScreen from "./components/ProductEditScreen";
 import Report from "./pages/Report";
 import Practice from "./pages/Practice";
 import Slides from "./practicecomponents/Slider";
+import DefaultPage from "./pages/DefaultPage";
 
 function App() {
 
@@ -80,6 +81,7 @@ function App() {
   return (<Router>
     <Routes>
       <Route path='/' element={<AppLayout />} >
+        <Route exact path='*' element={<DefaultPage/>} />
         <Route exact path='/' element={<Homepage />} />
         <Route exact path='/about-us' element={<About />} />
         <Route exact path='/services' element={<Services />} />
@@ -118,7 +120,7 @@ function App() {
           exact
         />
         <Route
-          path="/search/category/:category/sub_category/:sub_category/brand/:brand/district/:district/city/:city/name/:name/min/:min/max/:max/rating/:rating/order/:order/pageNumber/:pageNumber"
+          path="/search/category/:category/sub_category/:sub_category/brand/:brand/district/:district/city/:city/name/:name/min_price/:min_price/max_price/:max_price/rating/:rating/order/:order/pageNumber/:pageNumber"
           element={<SearchScreen />}
           exact
         />
@@ -171,7 +173,7 @@ function App() {
         />
       </Route>
       {/* StorePage */}
-      <Route exact path="/:store/" element={<ShopLayout />} >
+      <Route exact path="store/:store/" element={<ShopLayout />} >
         <Route exact path="*" element={
           <>
             {/* TEMPORY  WIDTH*/}

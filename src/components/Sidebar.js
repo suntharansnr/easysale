@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { gettheme } from '../actions/themeActions';
 import { signout } from '../actions/userActions';
 
@@ -19,38 +19,55 @@ function Sidebar() {
 
     const signoutHandler = () => {
         dispatch(signout());
-      };
+    };
+
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    if (userInfo.loading) {
+      // User data is still loading; you can show a loading indicator or handle it differently.
+    } else if (!(userInfo.data)) {
+      // User data is available but empty; redirect to login.
+      navigate('/login');
+    }
+  }, [userInfo]);
 
     return (
         <aside>
-        <div class="sidebar-box">
-            <div class="user">
+        <div className="sidebar-box">
+            <div className="user">
                 <figure>
                     <a href="#"><img src="assets/img/author/img1.jpg" alt="" /></a>
                 </figure>
-                <div class="usercontent">
-                    <h3>{userInfo['data']['name']}!</h3>
-                    <h4>{userInfo['data']['role']}</h4>
+                <div className="usercontent">
+                    {
+                        userInfo.data ? 
+                        <>
+                        <h3>{userInfo['data']['name']}!</h3>
+                        <h4>{userInfo['data']['role']}</h4>
+                        </>
+                        : ''
+                    }
                 </div>
             </div>
-            <nav class="navdashboard">
+            <nav className="navdashboard">
                 <ul>
                     <li>
-                        <Link to={`/dashboard`} class="active">
-                            <i class="lni-dashboard"></i>
+                        <Link to={`/dashboard`} className="active">
+                            <i className="lni-dashboard"></i>
                             <span>Dashboard</span>
                         </Link>
                     </li>
                     <li>
                         <Link to={`/profile`}>
-                            <i class="lni-cog"></i>
+                            <i className="lni-cog"></i>
                             <span>Profile Settings</span>
                         </Link>
                     </li>
                     <li>
                         <Link to={`/my-ads`}>
                         <a href="account-myads.html">
-                            <i class="lni-layers"></i>
+                            <i className="lni-layers"></i>
                             <span>My Ads</span>
                         </a>
                         </Link>
@@ -58,7 +75,7 @@ function Sidebar() {
                     <li>
                         <Link to={`/membership-packages`}>
                         <a href="account-myads.html">
-                            <i class="lni-layers"></i>
+                            <i className="lni-layers"></i>
                             <span>Membership packages</span>
                         </a>
                         </Link>
@@ -66,48 +83,48 @@ function Sidebar() {
                     <li>
                         <Link to={`/reports`}>
                         <a href="offermessages.html">
-                            <i class="lni-envelope"></i>
+                            <i className="lni-envelope"></i>
                             <span>Offers/Messages</span>
                         </a>
                         </Link>
                     </li>
                     <li>
                         <Link to={`/payments`}>
-                            <i class="lni-wallet"></i>
+                            <i className="lni-wallet"></i>
                             <span>Payments</span>
                         </Link>
                     </li>
                     <li>
                         <Link to={`/favorite`}>
-                            <i class="lni-heart"></i>
+                            <i className="lni-heart"></i>
                             <span>My Favourites</span>
                         </Link>
                     </li>
                     <li>
                         <Link to={`/my-stores`}>
-                            <i class="lni-heart"></i>
+                            <i className="lni-heart"></i>
                             <span>My Stores</span>
                         </Link>
                     </li>
                     <li>
                         <a href="privacy-setting.html">
-                            <i class="lni-star"></i>
+                            <i className="lni-star"></i>
                             <span>Privacy Settings</span>
                         </a>
                     </li>
                     <li>
                         <a href="#" onClick={signoutHandler}>
-                            <i class="lni-enter"></i>
+                            <i className="lni-enter"></i>
                             <span>Logout</span>
                         </a>
                     </li>
                 </ul>
             </nav>
         </div>
-        <div class="widget">
-            <h4 class="widget-title">Advertisement</h4>
-            <div class="add-box">
-                <img class="img-fluid" src="assets/img/img1.jpg" alt="" />
+        <div className="widget">
+            <h4 className="widget-title">Advertisement</h4>
+            <div className="add-box">
+                <img className="img-fluid" src="assets/img/img1.jpg" alt="" />
             </div>
         </div>
     </aside>

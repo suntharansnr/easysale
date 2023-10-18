@@ -51,8 +51,8 @@ export const listProducts = ({
   district = '',
   brand = '',
   order = '',
-  min = 0,
-  max = 0,
+  min_price = 0,
+  max_price = 0,
   rating = 0,
   ad_status = ''
 }) => async (dispatch, getState) => {
@@ -64,7 +64,7 @@ export const listProducts = ({
   } = getState();
   try {
     const { data } = await Axios.get(
-      `${process.env.REACT_APP_API_URL}/api/listings?page=${pageNumber}&seller=${seller}&q=${name}&category=${category}&sub_category=${sub_category}&brand=${brand}&district=${district}&min=${min}&max=${max}&rating=${rating}&shortBy=${order}&status=${ad_status}`
+      `${process.env.REACT_APP_API_URL}/api/listings?page=${pageNumber}&seller=${seller}&q=${name}&category=${category}&sub_category=${sub_category}&brand=${brand}&district=${district}&min_price=${min_price}&max_price=${max_price}&rating=${rating}&shortBy=${order}&status=${ad_status}`
       // ,      {
       //   headers: { Authorization: `Bearer ${userInfo['data']['token']}` },
       // }
@@ -84,8 +84,8 @@ export const listAdminProducts = ({
   district = '',
   brand = '',
   order = '',
-  min = 0,
-  max = 0,
+  min_price = 0,
+  max_price = 0,
   rating = 0,
   ad_status = ''
 }) => async (dispatch, getState) => {
@@ -97,7 +97,7 @@ export const listAdminProducts = ({
   } = getState();
   try {
     const { data } = await Axios.get(
-      `${process.env.REACT_APP_API_URL}/api/u/posts?page=${pageNumber}&seller=${seller}&q=${name}&category=${category}&sub_category=${sub_category}&brand=${brand}&district=${district}&min=${min}&max=${max}&rating=${rating}&shortBy=${order}&status=${ad_status}`
+      `${process.env.REACT_APP_API_URL}/api/u/posts?page=${pageNumber}&seller=${seller}&q=${name}&category=${category}&sub_category=${sub_category}&brand=${brand}&district=${district}&min_price=${min_price}&max_price=${max_price}&rating=${rating}&shortBy=${order}&status=${ad_status}`
       , {
         headers: { Authorization: `Bearer ${userInfo['data']['token']}` },
       }
@@ -192,7 +192,7 @@ export const createProduct = (product) => async (dispatch, getState) => {
   } catch (error) {
     const message =
       error.response && error.response.data.message
-        ? error.response.data.message
+        ? error.response.data
         : error.message;
     dispatch({ type: PRODUCT_CREATE_FAIL, payload: message });
   }
@@ -246,8 +246,8 @@ export const listFavorites = ({
   district = '',
   brand = '',
   order = '',
-  min = 0,
-  max = 0,
+  min_price = 0,
+  max_price = 0,
   rating = 0,
 }) => async (dispatch, getState) => {
   dispatch({
@@ -258,7 +258,7 @@ export const listFavorites = ({
   } = getState();
   try {
     const { data } = await Axios.get(
-      `${process.env.REACT_APP_API_URL}/api/u/posts/favorite-lists?pageNumber=${pageNumber}&seller=${seller}&q=${name}&category=${category}&sub_category=${sub_category}&brand=${brand}&district=${district}&min=${min}&max=${max}&rating=${rating}&shortBy=${order}`
+      `${process.env.REACT_APP_API_URL}/api/u/posts/favorite-lists?pageNumber=${pageNumber}&seller=${seller}&q=${name}&category=${category}&sub_category=${sub_category}&brand=${brand}&district=${district}&min_price=${min_price}&max_price=${max_price}&rating=${rating}&shortBy=${order}`
       , {
         headers: { Authorization: `Bearer ${userInfo['data']['token']}` },
       }

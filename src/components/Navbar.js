@@ -33,7 +33,7 @@ function Navbar() {
               </span>
             </liner>
             <DIV showNav={showNav}>
-              <ul class="slicknav_nav slicknav_hidden" aria-hidden="true" role="menu">
+              <ul className="slicknav_nav slicknav_hidden" aria-hidden="true" role="menu">
                 <li>
                 {
                                     userInfo ?

@@ -3,37 +3,37 @@ import React from 'react'
 function Cta() {
     return (
         <div>
-            <section class="cta section-padding">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6 col-lg-4">
-                            <div class="single-cta">
-                                <div class="cta-icon">
-                                    <i class="lni-grid"></i>
+            <section className="cta section-padding">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-xs-12 col-md-6 col-lg-4">
+                            <div className="single-cta">
+                                <div className="cta-icon">
+                                    <i className="lni-grid"></i>
                                 </div>
-                                <div class="content">
+                                <div className="content">
                                     <h4>Refreshing Design</h4>
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-md-6 col-lg-4">
-                            <div class="single-cta">
-                                <div class="cta-icon">
-                                    <i class="lni-brush"></i>
+                        <div className="col-xs-12 col-md-6 col-lg-4">
+                            <div className="single-cta">
+                                <div className="cta-icon">
+                                    <i className="lni-brush"></i>
                                 </div>
-                                <div class="content">
+                                <div className="content">
                                     <h4>Easy to Customize</h4>
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-md-6 col-lg-4">
-                            <div class="single-cta">
-                                <div class="cta-icon">
-                                    <i class="lni-headphone-alt"></i>
+                        <div className="col-xs-12 col-md-6 col-lg-4">
+                            <div className="single-cta">
+                                <div className="cta-icon">
+                                    <i className="lni-headphone-alt"></i>
                                 </div>
-                                <div class="content">
+                                <div className="content">
                                     <h4>24/7 Support</h4>
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                                 </div>

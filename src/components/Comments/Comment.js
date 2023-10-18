@@ -41,20 +41,20 @@ export default function Comment({comment,fetchProduct}) {
 
   return (
     <li>
-      <div class="media">
-        <div class="thumb-left">
+      <div className="media">
+        <div className="thumb-left">
           <a href="#">
-            <img class="img-fluid" src={comment.author_image ? `${process.env.REACT_APP_API_URL}/${comment.author_image}` : `${process.env.REACT_APP_API_URL}/assets/img-not-found.jpg`} alt="" />
+            <img className="img-fluid" src={comment.author_image ? `${process.env.REACT_APP_API_URL}/${comment.author_image}` : `${process.env.REACT_APP_API_URL}/assets/img-not-found.jpg`} alt="" />
           </a>
         </div>
-        <div class="info-body">
-          <div class="media-heading">
-            <h4 class="name">{comment?.author_name}</h4>
-            <span class="comment-date">
-              <i class="lni-alarm-clock"></i> {comment?.created_at}
+        <div className="info-body">
+          <div className="media-heading">
+            <h4 className="name">{comment?.author_name}</h4>
+            <span className="comment-date">
+              <i className="lni-alarm-clock"></i> {comment?.created_at}
             </span>
-            <a href="#" class="reply-link">
-              <i class="lni-reply"></i> Reply
+            <a href="#" className="reply-link">
+              <i className="lni-reply"></i> Reply
             </a>
             <button onClick={(e) => deleteComment(e)} className="ml-1 btn-sm btn-danger" type="button">
               <i className="lni-trash"></i>

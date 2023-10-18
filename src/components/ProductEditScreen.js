@@ -177,39 +177,39 @@ export default function ProductEditScreen(props) {
 
   return (
     <div>
-      <div class="page-header">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="breadcrumb-wrapper">
-                <h2 class="product-title">Dashbord</h2>
-                <ol class="breadcrumb">
+      <div className="page-header">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <div className="breadcrumb-wrapper">
+                <h2 className="product-title">Dashbord</h2>
+                <ol className="breadcrumb">
                   <li><a href="#">Home /</a></li>
-                  <li class="current">Dashboard</li>
+                  <li className="current">Dashboard</li>
                 </ol>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div id="content" class="section-padding">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-12 col-md-4 col-lg-3 page-sidebar">
+      <div id="content" className="section-padding">
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-12 col-md-4 col-lg-3 page-sidebar">
               <Sidebar />
             </div>
-            <div class="col-sm-12 col-md-8 col-lg-9">
+            <div className="col-sm-12 col-md-8 col-lg-9">
               <form className="form" onSubmit={submitHandler}>
-                <div class="row page-content">
-                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7">
-                    <div class="inner-box">
-                      <div class="dashboard-box">
-                        <h2 class="dashbord-title">Ad Detail</h2>
+                <div className="row page-content">
+                  <div className="col-xs-12 col-sm-12 col-md-12 col-lg-7">
+                    <div className="inner-box">
+                      <div className="dashboard-box">
+                        <h2 className="dashbord-title">Ad Detail</h2>
                       </div>
-                      <div class="dashboard-wrapper">
-                        <div class="form-group mb-3 tg-inputwithicon">
-                          <label class="control-label">Categories</label>
-                          <div class="tg-select form-control">
+                      <div className="dashboard-wrapper">
+                        <div className="form-group mb-3 tg-inputwithicon">
+                          <label className="control-label">Categories</label>
+                          <div className="tg-select form-control">
                             <select onChange={(e) => { setCategory(e.target.value); getDatas(e.target.value) }}>
                               <option value={category}>Select Categories</option>
                               {categories?.map((c) => (
@@ -219,9 +219,9 @@ export default function ProductEditScreen(props) {
                           </div>
                         </div>
                         {brands.length > 0 ?
-                          <div class="form-group mb-3 tg-inputwithicon">
-                            <label class="control-label">Brands</label>
-                            <div class="tg-select form-control">
+                          <div className="form-group mb-3 tg-inputwithicon">
+                            <label className="control-label">Brands</label>
+                            <div className="tg-select form-control">
                               <select>
                                 <option value="none">Select Brands</option>
                                 {brands?.map((c) => (
@@ -232,32 +232,32 @@ export default function ProductEditScreen(props) {
                           </div>
                           : ''
                         }
-                        <div class="form-group mb-3">
-                          <label class="control-label">Ad Title</label>
-                          <input class="form-control input-md" name="Title" placeholder="Title" type="text" value={ad_title} onChange={(e) => setTitle(e.target.value)} />
+                        <div className="form-group mb-3">
+                          <label className="control-label">Ad Title</label>
+                          <input className="form-control input-md" name="Title" placeholder="Title" type="text" value={ad_title} onChange={(e) => setTitle(e.target.value)} />
                         </div>
-                        <div class="form-group mb-3">
-                          <label class="control-label">Ad Description</label>
+                        <div className="form-group mb-3">
+                          <label className="control-label">Ad Description</label>
                           <textarea className='form-control' value={ad_description} onChange={(e) => setDescription(e.target.value)}></textarea>
                         </div>
 
-                        <div class="form-group mb-3">
+                        <div className="form-group mb-3">
                           <strong>Ad Type</strong>
-                          <div class="tg-selectgroup">
-                            <span class="tg-radio">
+                          <div className="tg-selectgroup">
+                            <span className="tg-radio">
                               <input id="tg-sameuser" type="radio" name="usertype" value="personal" checked={type == 'personal' ? true : false} onChange={(e) => setType(e.target.value)} />
                                 <label for="tg-sameuser"> Private</label>
                             </span>
-                            <span class="tg-radio ml-1">
+                            <span className="tg-radio ml-1">
                               <input id="tg-someoneelse" type="radio" name="usertype" value="business" checked={type == 'business' ? true : false} onChange={(e) => setType(e.target.value)} />
                                 <label for="tg-someoneelse"> Business</label>
                             </span>
                           </div>
                         </div>
 
-                        <div class="form-group mb-3 tg-inputwithicon">
-                          <label class="control-label">Condition</label>
-                          <div class="tg-select form-control">
+                        <div className="form-group mb-3 tg-inputwithicon">
+                          <label className="control-label">Condition</label>
+                          <div className="tg-select form-control">
                             <select value={condition} onChange={(e) => setCondition(e.target.value)}>
                               <option value="new">New</option>
                               <option value="used">Used</option>
@@ -265,23 +265,23 @@ export default function ProductEditScreen(props) {
                           </div>
                         </div>
 
-                        <div class="form-group mb-3">
-                          <label class="control-label">Price</label>
-                          <input class="form-control input-md" name="price" placeholder="Ad your Price" type="text" value={price} onChange={(e) => setPrice(e.target.value)} />
-                          <div class="tg-checkbox mt-3">
-                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="tg-priceoncall" />
-                              <label class="custom-control-label" for="tg-priceoncall" onChange={(e) => setNegotiable(e.target.value)}>Negotiable </label>
+                        <div className="form-group mb-3">
+                          <label className="control-label">Price</label>
+                          <input className="form-control input-md" name="price" placeholder="Ad your Price" type="text" value={price} onChange={(e) => setPrice(e.target.value)} />
+                          <div className="tg-checkbox mt-3">
+                            <div className="custom-control custom-checkbox">
+                              <input type="checkbox" className="custom-control-input" id="tg-priceoncall" />
+                              <label className="custom-control-label" for="tg-priceoncall" onChange={(e) => setNegotiable(e.target.value)}>Negotiable </label>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="inner-box">
-                      <div class="dashboard-box">
-                        <h2 class="dashbord-title">Media</h2>
+                    <div className="inner-box">
+                      <div className="dashboard-box">
+                        <h2 className="dashbord-title">Media</h2>
                       </div>
-                      <div class="dashboard-wrapper">
+                      <div className="dashboard-wrapper">
                       <div className='row'>
                       {
                         images ?
@@ -295,26 +295,26 @@ export default function ProductEditScreen(props) {
                         ''
                       }
                       </div>
-                        <label class="tg-fileuploadlabel" for="tg-photogallery">
+                        <label className="tg-fileuploadlabel" for="tg-photogallery">
                           <span>Drop files anywhere to upload</span>
                           <span>Or</span>
-                          <span class="btn btn-common">Select Files</span>
+                          <span className="btn btn-common">Select Files</span>
                           <span>Maximum upload file size: 500 KB</span>
-                          <input id="tg-photogallery" class="tg-fileinput" type="file" name="file" multiple="multiple" onChange={uploadFileHandler} />
+                          <input id="tg-photogallery" className="tg-fileinput" type="file" name="file" multiple="multiple" onChange={uploadFileHandler} />
                         </label>
                       </div>
                     </div>
                   </div>
-                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5">
-                    <div class="inner-box">
-                      <div class="tg-contactdetails">
-                        <div class="dashboard-box">
+                  <div className="col-xs-12 col-sm-12 col-md-12 col-lg-5">
+                    <div className="inner-box">
+                      <div className="tg-contactdetails">
+                        <div className="dashboard-box">
                           <h2>Location Info</h2>
                         </div>
                         <div className='dashboard-wrapper'>
-                          <div class="form-group mb-3 tg-inputwithicon">
-                            <label class="control-label">District</label>
-                            <div class="tg-select form-control">
+                          <div className="form-group mb-3 tg-inputwithicon">
+                            <label className="control-label">District</label>
+                            <div className="tg-select form-control">
                               <select value={district} onChange={(e) => { setDistrict(e.target.value); getCities(e.target.value) }}>
                                 <option value="none">Select districts</option>
                                 {districts?.map((c) => (
@@ -323,9 +323,9 @@ export default function ProductEditScreen(props) {
                               </select>
                             </div>
                           </div>
-                          <div class="form-group mb-3 tg-inputwithicon">
-                            <label class="control-label">City</label>
-                            <div class="tg-select form-control">
+                          <div className="form-group mb-3 tg-inputwithicon">
+                            <label className="control-label">City</label>
+                            <div className="tg-select form-control">
                               <select valu={city} eonChange={(e) => setCity(e.target.value)}>
                                 <option value="none">Select districts</option>
                                 {cities?.map((c) => (
@@ -338,30 +338,30 @@ export default function ProductEditScreen(props) {
                       </div>
                     </div>
 
-                    <div class="inner-box">
-                      <div class="tg-contactdetail">
-                        <div class="dashboard-box">
-                          <h2 class="dashbord-title">Payment Info</h2>
+                    <div className="inner-box">
+                      <div className="tg-contactdetail">
+                        <div className="dashboard-box">
+                          <h2 className="dashbord-title">Payment Info</h2>
                         </div>
-                        <div class="dashboard-wrapper">
-                          <div class="form-group mb-3">
+                        <div className="dashboard-wrapper">
+                          <div className="form-group mb-3">
                             <strong>Price plan:</strong>
-                            <div class="tg-selectgroup">
-                              <span class="tg-radio">
+                            <div className="tg-selectgroup">
+                              <span className="tg-radio">
                                 <input id="tg-sameuser" type="radio" name="usertype" value="regular" checked={price_plan == 'regular' ? 'checked' : ''} onChange={(e) => setPrice_plan(e.target.value)}/>
                                 <label for="tg-sameuser">Regular</label>
                               </span>
-                              <span class="tg-radio">
+                              <span className="tg-radio">
                                 <input id="tg-someoneelse" type="radio" name="usertype" value="premium" checked={price_plan == 'premium' ? 'checked' : ''} onChange={(e) => setPrice_plan(e.target.value)}/>
                                 <label for="tg-someoneelse">Premium</label>
                               </span>
                             </div>
                           </div>
 
-                          <div class="tg-checkbox">
-                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="tg-agreetermsandrules" />
-                              <label class="custom-control-label" for="tg-agreetermsandrules">Mark ad as urgent</label>
+                          <div className="tg-checkbox">
+                            <div className="custom-control custom-checkbox">
+                              <input type="checkbox" className="custom-control-input" id="tg-agreetermsandrules" />
+                              <label className="custom-control-label" for="tg-agreetermsandrules">Mark ad as urgent</label>
                             </div>
                           </div>
 
@@ -369,31 +369,31 @@ export default function ProductEditScreen(props) {
                       </div>
                     </div>
 
-                    <div class="inner-box">
-                      <div class="tg-contactdetail">
-                        <div class="dashboard-box">
-                          <h2 class="dashbord-title">Seller Info</h2>
+                    <div className="inner-box">
+                      <div className="tg-contactdetail">
+                        <div className="dashboard-box">
+                          <h2 className="dashbord-title">Seller Info</h2>
                         </div>
-                        <div class="dashboard-wrapper">
-                          <div class="form-group mb-3">
-                            <div class="form-group mb-3">
-                              <label class="control-label">Seller name*</label>
-                              <input class="form-control input-md" name="name" type="text" value={seller_name} onChange={(e) => setSeller_name(e.target.value)} />
+                        <div className="dashboard-wrapper">
+                          <div className="form-group mb-3">
+                            <div className="form-group mb-3">
+                              <label className="control-label">Seller name*</label>
+                              <input className="form-control input-md" name="name" type="text" value={seller_name} onChange={(e) => setSeller_name(e.target.value)} />
                             </div>
-                            <div class="form-group mb-3">
-                              <label class="control-label">Seller email*</label>
-                              <input class="form-control input-md" name="name" type="text" value={seller_email} onChange={(e) => setSeller_email(e.target.value)} />
+                            <div className="form-group mb-3">
+                              <label className="control-label">Seller email*</label>
+                              <input className="form-control input-md" name="name" type="text" value={seller_email} onChange={(e) => setSeller_email(e.target.value)} />
                             </div>
-                            <div class="form-group mb-3">
-                              <label class="control-label">Seller phone*</label>
-                              <input class="form-control input-md" name="phone" type="text" value={seller_phone} onChange={(e) => setSeller_phone(e.target.value)} />
+                            <div className="form-group mb-3">
+                              <label className="control-label">Seller phone*</label>
+                              <input className="form-control input-md" name="phone" type="text" value={seller_phone} onChange={(e) => setSeller_phone(e.target.value)} />
                             </div>
-                            <div class="form-group mb-3">
-                              <label class="control-label">Address</label>
-                              <input class="form-control input-md" name="address" type="text" value={address} onChange={(e) => setSeller_address(e.target.value)} />
+                            <div className="form-group mb-3">
+                              <label className="control-label">Address</label>
+                              <input className="form-control input-md" name="address" type="text" value={address} onChange={(e) => setSeller_address(e.target.value)} />
                             </div>
 
-                            <button class="btn btn-common" type="submit">Post Ad</button>
+                            <button className="btn btn-common" type="submit">Post Ad</button>
                           </div>
                         </div>
                       </div>

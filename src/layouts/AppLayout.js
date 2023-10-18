@@ -17,7 +17,8 @@ import '../assets/css/blue.css';
 // import '../assets/css/cyan.css';
 // import '../assets/css/purple.css';
 import '../assets/css/responsive.css';
-
+//editing the theme by raj
+import '../assets/css/custom.css';
 function AppLayout() {
   return (
     <>

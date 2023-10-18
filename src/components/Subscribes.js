@@ -32,25 +32,25 @@ function Subscribes() {
         })
     }
     return (
-        <section class="subscribes section-padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="subscribes-inner">
-                            <div class="icon">
-                                <i class="lni-pointer"></i>
+        <section className="subscribes section-padding">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div className="subscribes-inner">
+                            <div className="icon">
+                                <i className="lni-pointer"></i>
                             </div>
-                            <div class="sub-text">
+                            <div className="sub-text">
                                 <h3>Subscribe to Newsletter</h3>
                                 <p>and receive new ads in inbox</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <Form onSubmit={createSubscribe} class="contact-form" id="contactForm" data-toggle="validator">
-                            <div class="subscribe">
-                                <input type="email" value={email} onChange={(event) => { setEmail(event.target.value) }} class="form-control" id="email" placeholder="Email" data-error="Please enter your email" />
-                                <button class="btn btn-common" type="submit">Subscribe</button>
+                    <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <Form onSubmit={createSubscribe} className="contact-form" id="contactForm" data-toggle="validator">
+                            <div className="subscribe">
+                                <input type="email" value={email} onChange={(event) => { setEmail(event.target.value) }} className="form-control" id="email" placeholder="Email" data-error="Please enter your email" />
+                                <button className="btn btn-common" type="submit">Subscribe</button>
                             </div>
                         </Form>
                     </div>

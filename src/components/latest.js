@@ -31,7 +31,7 @@ function Latest() {
                                     <div className="featured-box">
                                         <figure>
                                             <div className="icon">
-                                                <Favoritebtn slug={row.slug}/>
+                                                <Favoritebtn ad={row} slug={row.slug}/>
                                                 <span><i className="lni-bookmark"></i></span>
                                             </div>
                                             <a href="#" onClick={() => navigate(`/product/${row.id}`)}>

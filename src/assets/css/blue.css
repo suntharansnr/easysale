@@ -76,6 +76,9 @@ a:hover{
   .box:hover{
     background: #03A9F4;
   }
+  .featured-box figure .icon span i .bg-none{
+    background: none !important;
+  }
   .featured-box figure .icon span i{
     background: #03A9F4;
   }

@@ -25,9 +25,9 @@ function Counter() {
     ];
     return (
         <div>
-            <section class="counter-section section-padding">
-                <div class="container">
-                    <div class="row">
+            <section className="counter-section section-padding">
+                <div className="container">
+                    <div className="row">
                     {counters.map((counter, index) => (
                             <div className="col-md-3 col-sm-6 work-counter-widget" key={index}>
                                 <div className="counter">

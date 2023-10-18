@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { saveFavorite } from '../actions/productActions';
 import { toast } from 'react-toastify';
 
-function Favoritebtn({slug}) {
+function Favoritebtn({ad}) {
 
-    const favoriteHandler = (id) => {
-        dispatch(saveFavorite(id));
+    const favoriteHandler = (slug) => {
+        dispatch(saveFavorite(slug));
     };
 
     const dispatch = useDispatch();
@@ -21,10 +21,19 @@ function Favoritebtn({slug}) {
     }
 
     return (
-        <>
-            <a onClick={() => { favoriteHandler(slug) }}>
-                <span className="bg-green"><i className="lni-heart"></i></span>
-            </a>
+        <> 
+            {
+                ad.liked_by_current_user === 'true' ? (
+                <a onClick={() => { return }}>
+                   <span className=""><i className="lni-heart"></i></span>
+                </a>
+                )
+                :
+                <a onClick={() => { favoriteHandler(ad.slug) }}>
+                  <span className=""><i className="lni-heart bg-none"></i></span>
+                </a>
+            }
+
         </>
     )
 }

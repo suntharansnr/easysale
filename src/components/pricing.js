@@ -69,16 +69,16 @@ function Pricing(packages) {
                                         <form onSubmit={submitHandler}>
                                             <input type="hidden" name="pack_id" value={row.id}/>
                                             <input type="hidden" name="amount" value={row.price}/>
-                                            <div class="form-group {{ $errors->has('payment_method')? 'has-error':'' }}">
-                                                <label for="payment_method" class="control-label">@lang('app.payment_method')</label>
-                                                <div class="">
-                                                    <select class="form-control select2NoSearch" name="payment_method" id="payment_method">
+                                            <div className="form-group {{ $errors->has('payment_method')? 'has-error':'' }}">
+                                                <label for="payment_method" className="control-label">@lang('app.payment_method')</label>
+                                                <div className="">
+                                                    <select className="form-control select2NoSearch" name="payment_method" id="payment_method">
                                                         <option value="payhere">Payhere</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <h1>{row.duration} Days</h1>
-                                            <button class="btn btn-common" type='submit'>{row.price} Purchase</button>
+                                            <button className="btn btn-common" type='submit'>{row.price} Purchase</button>
                                         </form>
                                     </div>
                                 </div>

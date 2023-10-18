@@ -46,14 +46,14 @@ function CreateComment({ className = "",post_id,fetchProduct}) {
   return (
     <DIV className={`${className}`}>
       <div id="respond">
-        <h2 class="respond-title">Leave A Comment</h2>
+        <h2 className="respond-title">Leave A Comment</h2>
         <form onSubmit={(e) => saveComment(e)}>
-          <div class="row">
-            <div class="col-lg-12 col-md-12col-xs-12">
-              <div class="form-group">
+          <div className="row">
+            <div className="col-lg-12 col-md-12col-xs-12">
+              <div className="form-group">
                 <textarea
                   id="comment"
-                  class="form-control"
+                  className="form-control"
                   name="comment"
                   cols="45"
                   rows="8"
@@ -61,7 +61,7 @@ function CreateComment({ className = "",post_id,fetchProduct}) {
                   onChange={(e) => setMessage(e.target.value)}
                 ></textarea>
               </div>
-              <button type="submit" id="submit" class="btn btn-common">
+              <button type="submit" id="submit" className="btn btn-common">
                 Post Comment
               </button>
             </div>
