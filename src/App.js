@@ -175,7 +175,7 @@ function App() {
         />
       </Route>
       {/* StorePage */}
-      <Route exact path="/:store/" element={<ShopLayout />} >
+      <Route exact path="/store/:store/" element={<ShopLayout />} >
         <Route exact path="*" element={
           <>
             {/* TEMPORY  WIDTH*/}

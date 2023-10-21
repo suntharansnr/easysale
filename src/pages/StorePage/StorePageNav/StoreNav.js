@@ -12,7 +12,7 @@ function StoreNav({className="",id="",store}) {
        <nav className="display-flex justify-content-center align-items-center    ">
            {
                links.map(linkitem=>(
-                   <NavLink  to={`/${store}/${linkitem}`} key={Math.random()}   activeClassName="active"   className="ms-3  a font-1-7  ps-2 pe-2 text-color-grey-ori">{linkitem}</NavLink>
+                   <NavLink  to={`/store/${store}/${linkitem}`} key={Math.random()}   activeClassName="active"   className="ms-3  a font-1-7  ps-2 pe-2 text-color-grey-ori">{linkitem}</NavLink>
 
                ))
            }

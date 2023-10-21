@@ -109,7 +109,7 @@ function Mystores(props) {
                                   <div class="btns-actions">
                                     <Link
                                       className="btn-action btn-view"
-                                      to={`/${row.name}/home`}
+                                      to={`/store/${row.name}/home`}
                                     >
                                       <i class="lni-eye"></i>
                                     </Link>
