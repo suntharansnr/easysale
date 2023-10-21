@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import FilterDataName from '../../../Functions/FilterDataByName';
 import { selectClicks, SetClassifedCategoryFN, ShowHideAllFN } from '../../../Redux/slices/clickSlice';
-import CustomizePopUpShowList from './../CategoryPopUp/CustomizePopUpShowList';
-
 
 import Hotel from './../../../assets/svg/hotel.svg';
 

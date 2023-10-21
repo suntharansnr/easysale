@@ -2,8 +2,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import {  selectClicks, ShowHideAllFN } from '../../Redux/slices/clickSlice';
 import MobileNav from './MobileNav/MobileNav';
-import LocationPopUp from './LocationPopUp/LocationPopUp';
-import CategoryPopUp from './CategoryPopUp/CategoryPopUp';
 import PostAdPopUp from './PostAdPopUp/PostAdPopUp';
 import FilterPopUp from './Filter/FilterPopUp';
 import UserDashBoardSelectComp from './UserDashBoardSelected/UserDashBoardSelectComp';
@@ -51,9 +49,6 @@ function Overlay({className=""}) {
          <div className="Overlay-wrapper cursor-p h-100">
              {/* {clicks.showMobileNav &&  <MobileNav  className=' w-35 mobile-navv p-3'></MobileNav>} */}
              {/* <MobileNav showNav={clicks.showMobileNav} className={`w-35 mobile-navv p-3 ${clicks.showMobileNav?'mobile-nav-transalate-normal':''}`}></MobileNav> */}
-
-             {clicks.showLocationPopUp &&    <LocationPopUp className='w-65  overlay-inside-popup  ms-auto me-auto mt-5'></LocationPopUp>}
-             {clicks.showCategoryPopUp &&    <CategoryPopUp className='w-65  overlay-inside-popup  ms-auto me-auto mt-5'></CategoryPopUp>}
              {clicks.showPostAd &&    <PostAdPopUp className='w-65  overlay-inside-popup-post-ad  ms-auto me-auto mt-5'></PostAdPopUp>}
              {clicks.classifiedPagefilter &&    <FilterPopUp className='w-65  overlay-inside-popup-post-ad  ms-auto me-auto mt-5'></FilterPopUp>}
              {clicks.showNearbyLocationPopUp &&    <NearbyLocationPopUp className='w-40 overlay-inside-popup-post-ad    ms-auto me-auto mt-auto  mt-22'></NearbyLocationPopUp>}
