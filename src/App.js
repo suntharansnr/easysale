@@ -31,7 +31,6 @@ import StorePage from "./pages/StorePage/StorePage";
 import StorePageMobileNav from './components/Overlay/StoreMobilePageNav/StorePageMobileNav'
 
 import { selectClicks, SetShowPostAdFN, ShowLocationPopupFN, ShowMobileNavFN, ShowNearbyLocationPopUpFN } from './Redux/slices/clickSlice';
-import BottomMobile from './components/BottomMobile/BottomMobile';
 import { useDispatch, useSelector } from "react-redux";
 import Membership from "./pages/Membeship";
 import OrderScreen from "./pages/OrderScreen";
@@ -182,7 +181,6 @@ function App() {
             {/* <ScreenWidthCalcComp></ScreenWidthCalcComp> */}
             <StorePage></StorePage>
             <StorePageMobileNav ShowstoreMobileNav={clicks.storeMobileNav} ></StorePageMobileNav>
-            <BottomMobile></BottomMobile>
           </>
         } />
       </Route>
