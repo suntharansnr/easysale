@@ -4,11 +4,6 @@ import {  selectClicks, ShowHideAllFN } from '../../Redux/slices/clickSlice';
 import MobileNav from './MobileNav/MobileNav';
 import PostAdPopUp from './PostAdPopUp/PostAdPopUp';
 import FilterPopUp from './Filter/FilterPopUp';
-import UserDashBoardSelectComp from './UserDashBoardSelected/UserDashBoardSelectComp';
-import NearbyLocationPopUp from './NearbyLoacationPopUp/NearbyLoacationPopUp';
-
-
-
 
 function Overlay({className=""}) {
 
@@ -51,16 +46,8 @@ function Overlay({className=""}) {
              {/* <MobileNav showNav={clicks.showMobileNav} className={`w-35 mobile-navv p-3 ${clicks.showMobileNav?'mobile-nav-transalate-normal':''}`}></MobileNav> */}
              {clicks.showPostAd &&    <PostAdPopUp className='w-65  overlay-inside-popup-post-ad  ms-auto me-auto mt-5'></PostAdPopUp>}
              {clicks.classifiedPagefilter &&    <FilterPopUp className='w-65  overlay-inside-popup-post-ad  ms-auto me-auto mt-5'></FilterPopUp>}
-             {clicks.showNearbyLocationPopUp &&    <NearbyLocationPopUp className='w-40 overlay-inside-popup-post-ad    ms-auto me-auto mt-auto  mt-22'></NearbyLocationPopUp>}
-             {/* {clicks.UserDashBoardSelectedComp && document.documentElement.clientWidth>600 &&    <UserDashBoardSelectComp className='w-65  overlay-inside-popup-post-ad  ms-auto me-auto mt-5'></UserDashBoardSelectComp>} */}
-     
-     
-     
              {/* {clicks.showMobileNav &&    <LocationPopUp className='w-65 ms-auto me-auto mt-5'></LocationPopUp>}
              {clicks.showMobileNav &&    <LocationPopUp className='w-65 ms-auto me-auto mt-5'></LocationPopUp>} */}
-
-          
-            
          </div>
     </DIV>
   );
