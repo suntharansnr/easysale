@@ -1,9 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import {  selectClicks, ShowHideAllFN } from '../../Redux/slices/clickSlice';
-import MobileNav from './MobileNav/MobileNav';
-import PostAdPopUp from './PostAdPopUp/PostAdPopUp';
-import FilterPopUp from './Filter/FilterPopUp';
 
 function Overlay({className=""}) {
 
@@ -44,8 +41,6 @@ function Overlay({className=""}) {
          <div className="Overlay-wrapper cursor-p h-100">
              {/* {clicks.showMobileNav &&  <MobileNav  className=' w-35 mobile-navv p-3'></MobileNav>} */}
              {/* <MobileNav showNav={clicks.showMobileNav} className={`w-35 mobile-navv p-3 ${clicks.showMobileNav?'mobile-nav-transalate-normal':''}`}></MobileNav> */}
-             {clicks.showPostAd &&    <PostAdPopUp className='w-65  overlay-inside-popup-post-ad  ms-auto me-auto mt-5'></PostAdPopUp>}
-             {clicks.classifiedPagefilter &&    <FilterPopUp className='w-65  overlay-inside-popup-post-ad  ms-auto me-auto mt-5'></FilterPopUp>}
              {/* {clicks.showMobileNav &&    <LocationPopUp className='w-65 ms-auto me-auto mt-5'></LocationPopUp>}
              {clicks.showMobileNav &&    <LocationPopUp className='w-65 ms-auto me-auto mt-5'></LocationPopUp>} */}
          </div>
