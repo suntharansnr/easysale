@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Service from '../components/service'
 import Counter from '../components/Counter'
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,6 +9,7 @@ import { base_url } from '../utils';
 import Sidebar from '../components/Sidebar';
 import Pricing from '../components/pricing';
 import Breadcrumb from '../components/Breadcrumb';
+import axios from 'axios';
 
 export default function Membership(props) {
 
@@ -19,6 +20,22 @@ export default function Membership(props) {
     const { loading, error, packages } = packageList;
 
     const dispatch = useDispatch();
+
+    const [CurrentMembership, setCurrentMembership] = useState([])
+
+    useEffect(() => {
+        fetchCurrentMembership()
+    }, [])
+
+    const fetchCurrentMembership = async () => {
+        await axios.get(`${process.env.REACT_APP_API_URL}/api/memberships/current`,
+            {
+             headers: { Authorization: `Bearer ${userInfo["data"]["token"]}` },
+            }
+            ).then(({ data }) => {
+            setCurrentMembership(data['data']);
+        })
+    }
 
     useEffect(() => {
         dispatch(
@@ -38,7 +55,15 @@ export default function Membership(props) {
                             <Sidebar />
                         </div>
                         <div class="col-sm-12 col-md-8 col-lg-9">
-                            <Pricing  packages={packages}/>
+                            {
+                              CurrentMembership.success_payment_count > 0 ? 
+                              <>
+                              <div className='card shadow'>
+                              <h3>Your membership will expires in {CurrentMembership.membership_expires_in} days</h3>
+                              </div>
+                              </> 
+                              : <Pricing  packages={packages}/>
+                            }
                         </div>
                     </div>
                 </div>

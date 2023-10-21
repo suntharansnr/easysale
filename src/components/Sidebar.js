@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { gettheme } from '../actions/themeActions';
 import { signout } from '../actions/userActions';
 
@@ -32,6 +32,8 @@ function Sidebar() {
     }
   }, [userInfo]);
 
+    const location = useLocation();
+  
     return (
         <aside>
         <div className="sidebar-box">
@@ -53,61 +55,55 @@ function Sidebar() {
             <nav className="navdashboard">
                 <ul>
                     <li>
-                        <Link to={`/dashboard`} className="active">
+                        <Link to={`/dashboard`} className={location.pathname === '/dashboard' ? 'active' : ''}>
                             <i className="lni-dashboard"></i>
                             <span>Dashboard</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to={`/profile`}>
+                        <Link to={`/profile`} className={location.pathname === '/profile' ? 'active' : ''}>
                             <i className="lni-cog"></i>
                             <span>Profile Settings</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to={`/my-ads`}>
-                        <a href="account-myads.html">
+                        <Link to={`/my-ads`} className={location.pathname === '/my-ads' ? 'active' : ''}>
                             <i className="lni-layers"></i>
                             <span>My Ads</span>
-                        </a>
                         </Link>
                     </li>
                     <li>
-                        <Link to={`/membership-packages`}>
-                        <a href="account-myads.html">
+                        <Link to={`/membership-packages`} className={location.pathname === '/membership-packages' ? 'active' : ''}>
                             <i className="lni-layers"></i>
                             <span>Membership packages</span>
-                        </a>
                         </Link>
                     </li>
                     <li>
-                        <Link to={`/reports`}>
-                        <a href="offermessages.html">
+                        <Link to={`/reports`} className={location.pathname === '/reports' ? 'active' : ''}>
                             <i className="lni-envelope"></i>
                             <span>Offers/Messages</span>
-                        </a>
                         </Link>
                     </li>
                     <li>
-                        <Link to={`/payments`}>
+                        <Link to={`/payments`} className={location.pathname === '/payments' ? 'active' : ''}>
                             <i className="lni-wallet"></i>
                             <span>Payments</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to={`/favorite`}>
+                        <Link to={`/favorite`} className={location.pathname === '/favorite' ? 'active' : ''}>
                             <i className="lni-heart"></i>
                             <span>My Favourites</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to={`/my-stores`}>
+                        <Link to={`/my-stores`} className={location.pathname === '/my-stores' ? 'active' : ''}>
                             <i className="lni-heart"></i>
                             <span>My Stores</span>
                         </Link>
                     </li>
                     <li>
-                        <a href="privacy-setting.html">
+                        <a href="privacy-setting.html" className={location.pathname === '/privacy' ? 'active' : ''}>
                             <i className="lni-star"></i>
                             <span>Privacy Settings</span>
                         </a>

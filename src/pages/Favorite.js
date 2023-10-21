@@ -56,6 +56,8 @@ function Favorite(props) {
                                         <h2 class="dashbord-title">Favorite ads</h2>
                                     </div>
                                     <div class="dashboard-wrapper">
+                                        {
+                                            products?.length > 0 ?
                                         <table class="table table-responsive dashboardtable tablemyads">
                                             <thead>
                                                 <tr>
@@ -76,14 +78,14 @@ function Favorite(props) {
                                                                     <h3>{row.title}</h3>
                                                                     <span>Ad ID: {row.id}</span>
                                                                 </td>
-                                                                <td data-title="Category"><span class="adcategories">{row.category['category_name_en']} &amp; {row.sub_category['category_name_en']}</span></td>
+                                                                <td data-title="Category"><span class="adcategories">{row.category ? row.category['category_name_en'] : ''} &amp; {row.sub_category['category_name_en']}</span></td>
                                                                 <td data-title="Price">
                                                                     <h3>{row.price}$</h3>
                                                                 </td>
                                                                 <td data-title="Action">
                                                                     <div class="btns-actions">
-                                                                        <Link to={`/product/` + row.id}>
-                                                                        <a class="btn-action btn-view" href="#"><i class="lni-eye"></i></a>
+                                                                        <Link to={`/product/` + row.id} class="btn-action btn-view">
+                                                                              <i class="lni-eye"></i>
                                                                         </Link>
                                                                     </div>
                                                                 </td>
@@ -93,6 +95,9 @@ function Favorite(props) {
                                                 }
                                             </tbody>
                                         </table>
+                                        :
+                                        <h3 className='text-center text-lg text-warning'>No data found please add..</h3>
+                                        }
                                     </div>
                                 </div>
                             </div>

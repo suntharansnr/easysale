@@ -83,6 +83,8 @@ function Report(props) {
                                         <h2 class="dashbord-title">Reports</h2>
                                     </div>
                                     <div class="dashboard-wrapper">
+                                        {
+                                            reports?.length > 0 ?
                                         <table class="table table-responsive dashboardtable tablemyads">
                                             <thead>
                                                 <tr>
@@ -137,6 +139,9 @@ function Report(props) {
                                                 }
                                             </tbody>
                                         </table>
+                                        :
+                                        <h3 className='text-center text-lg text-warning'>No data found please add..</h3>
+                                        }
                                     </div>
                                 </div>
                             </div>

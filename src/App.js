@@ -40,6 +40,7 @@ import Report from "./pages/Report";
 import Practice from "./pages/Practice";
 import Slides from "./practicecomponents/Slider";
 import DefaultPage from "./pages/DefaultPage";
+import Register from "./pages/Register";
 
 function App() {
 
@@ -80,7 +81,7 @@ function App() {
 
   return (<Router>
     <Routes>
-      <Route path='/' element={<AppLayout />} >
+      <Route path='/' exact element={<AppLayout />} >
         <Route exact path='*' element={<DefaultPage/>} />
         <Route exact path='/' element={<Homepage />} />
         <Route exact path='/about-us' element={<About />} />
@@ -90,6 +91,7 @@ function App() {
         <Route exact path='/faq' element={<Faq />} />
         <Route exact path='/contact' element={<Contact />} />
         <Route exact path='/login' element={<Login />} />
+        <Route exact path='/register' element={<Register/>} />
 
         <Route exact path='/product/:id' element={<Singlead />} />
         <Route path="/product/create" element={<ProductCreateScreen />} />
@@ -173,7 +175,7 @@ function App() {
         />
       </Route>
       {/* StorePage */}
-      <Route exact path="store/:store/" element={<ShopLayout />} >
+      <Route exact path="/:store/" element={<ShopLayout />} >
         <Route exact path="*" element={
           <>
             {/* TEMPORY  WIDTH*/}

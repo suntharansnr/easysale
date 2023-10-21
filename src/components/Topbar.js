@@ -50,17 +50,19 @@ function Topbar() {
                                 {
                                     userInfo ?
                                         <div className="header-top-right float-right">
-                                            <Link to={`/dashboard`}>
-                                            <a href="login.html" className="header-top-button"><i className="lni-lock"></i> Dashboard</a> |
+                                            <Link to={`/dashboard`} className="header-top-button">
+                                            <i className="lni-lock"></i> Dashboard |
                                             </Link>
                                             <a href="login.html" onClick={signoutHandler} className="header-top-button"><i className="lni-unlock"></i></a>
                                         </div>
                                         :
                                         <div className="header-top-right float-right">
-                                            <Link to={`/login`}>
-                                            <a href="login.html" className="header-top-button"><i className="lni-lock"></i> Log In</a> |
+                                            <Link to={`/login`} className="header-top-button">
+                                            <i className="lni-lock"></i> Log In |
                                             </Link>
-                                            <a href="register.html" className="header-top-button"><i className="lni-pencil"></i> Register</a>
+                                            <Link to={`/register`} className="header-top-button">
+                                            <i className="lni-pencil"></i> Register
+                                            </Link>
                                         </div>
 
                                 }

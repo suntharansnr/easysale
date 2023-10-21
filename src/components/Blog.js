@@ -40,14 +40,14 @@ function Blog() {
                                                 <span className="date float-right"><i className="lni-calendar"></i> {row.created_at}</span>
                                             </div>
                                             <h3>
-                                                <a href="single-post.html">{row.title}</a>
+                                            <Link to={`/blog/${row.slug}`}>{row.title}</Link>
                                             </h3>
                                             <p>
                                                 {row.post_content.length > 250 ?
                                                 `${row.post_content.substring(0, 250)}` : row.post_content
                                                 }
                                             </p>
-                                            <a href="single-post.html" className="btn btn-common">Read More</a>
+                                            <Link to={`/blog/${row.slug}`} className="btn btn-common">Read More</Link>
                                         </div>
                                     </div>
                                     </Link>

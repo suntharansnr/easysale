@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Breadcrumb({activePage}) {
   return (
@@ -10,7 +11,7 @@ function Breadcrumb({activePage}) {
               <h2 className="product-title">{activePage}</h2>
               <ol className="breadcrumb">
                 <li>
-                  <a href="#">Home /</a>
+                    <Link to={`/`}>Home /</Link>
                 </li>
                 <li className="current">{activePage}</li>
               </ol>

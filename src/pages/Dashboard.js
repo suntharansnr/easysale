@@ -125,7 +125,9 @@ function Dashboard(props) {
                                             </div>
                                             : 'loading'
                                         }
-                                        <table class="table table-responsive dashboardtable tablemyads">
+                                        {
+                                            products?.length > 0 ?
+                                        <table className="table table-responsive dashboardtable tablemyads">
                                             <thead>
                                                 <tr>
                                                     <th>
@@ -184,6 +186,9 @@ function Dashboard(props) {
                                                 }
                                             </tbody>
                                         </table>
+                                        :
+                                        <h3 className='text-center text-lg text-warning'>No data found please add..</h3>
+                                        }
                                     </div>
                                 </div>
                             </div>

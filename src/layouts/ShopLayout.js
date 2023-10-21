@@ -7,9 +7,6 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import MobileNav from '../components/Overlay/MobileNav/MobileNav';
 
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import '../shop.css';
-
 function ShopLayout() {
 
   const clicks = useSelector(selectClicks);

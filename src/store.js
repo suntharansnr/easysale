@@ -26,7 +26,7 @@ import {
   orderSummaryReducer,
 } from './reducers/orderReducers';
 
-import { userDetailsReducer, userSigninReducer, userUpdateProfileReducer, userUpdateReducer,} from './reducers/userReducers';
+import { userDetailsReducer, userSigninReducer,userRegisterReducer, userUpdateProfileReducer, userUpdateReducer,} from './reducers/userReducers';
 import { themeReducer,} from './reducers/themeReducers';
 import { paymentCategoryListReducer, paymentCreateReducer, paymentDeleteReducer, paymentDetailsReducer, paymentListReducer, paymentReviewCreateReducer, paymentUpdateReducer } from './reducers/paymentReducers';
 import { districtListReducer, getCityByDistrict } from './reducers/locationReducers';
@@ -54,6 +54,7 @@ const initialState = {
 
 const reducer = combineReducers({
   userSignin: userSigninReducer,
+  userRegister: userRegisterReducer,
   themeDetails:themeReducer,
 
   productList: productListReducer,

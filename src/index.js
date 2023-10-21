@@ -11,11 +11,29 @@ import { ToastContainer } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 
+//create components using React.lazy
+const ShopTheme = React.lazy(() => import('./themes/shopTheme'));
+const DarkTheme = React.lazy(() => import('./themes/darkTheme'));
+
+//create a parent component that will load the components conditionally using React.Suspense
+const ThemeSelector = ({ children }) => {
+  return (
+    <>
+      <React.Suspense fallback={<></>}>
+        {window.location.pathname.startsWith('/store') ? <ShopTheme /> : <DarkTheme/>}
+      </React.Suspense>
+      {children}
+    </>
+  )
+}
+
 ReactDOM.render(
   <Provider store={store}>
   <React.StrictMode>
     <ToastContainer />
+    <ThemeSelector>
     <App />
+    </ThemeSelector>
   </React.StrictMode>
   </Provider>,
   document.getElementById('root')
