@@ -30,7 +30,7 @@ import StorePage from "./pages/StorePage/StorePage";
 
 import StorePageMobileNav from './components/Overlay/StoreMobilePageNav/StorePageMobileNav'
 
-import { selectClicks, SetShowPostAdFN, ShowLocationPopupFN, ShowMobileNavFN, ShowNearbyLocationPopUpFN } from './Redux/slices/clickSlice';
+import { selectClicks, ShowMobileNavFN } from './Redux/slices/clickSlice';
 import { useDispatch, useSelector } from "react-redux";
 import Membership from "./pages/Membeship";
 import OrderScreen from "./pages/OrderScreen";
@@ -60,21 +60,9 @@ function App() {
 
   const handleClick = (e) => {
     const mobileNavOpenIcon = e.target.closest('#mobileNav-open-icon');
-    const LocationIcon = e.target.closest('.show-btn-location');
-    const NearbyLocationIcon = e.target.closest('.show-btn-nearby-location');
-    const PostAdMobileBottom = e.target.closest("#Post-ad-mobile");
 
     if (mobileNavOpenIcon) {
       dispatch(ShowMobileNavFN());
-    }
-    if (LocationIcon) {
-      dispatch(ShowLocationPopupFN());
-    }
-    if (PostAdMobileBottom) {
-      dispatch(SetShowPostAdFN());
-    }
-    if (NearbyLocationIcon) {
-      dispatch(ShowNearbyLocationPopUpFN());
     }
   };
 

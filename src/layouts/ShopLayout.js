@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import OverlayFull from '../components/Overlay/OverlayFull';
 import {BrowserRouter,Routes,Route, Outlet} from "react-router-dom";
 import { useSelector } from 'react-redux';
-import { selectClicks, SetShowPostAdFN, ShowLocationPopupFN, ShowMobileNavFN, ShowNearbyLocationPopUpFN } from '../Redux/slices/clickSlice';
+import { selectClicks, ShowMobileNavFN } from '../Redux/slices/clickSlice';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import MobileNav from '../components/Overlay/MobileNav/MobileNav';
@@ -25,21 +25,9 @@ function ShopLayout() {
 
   const handleClick = (e) => {
     const mobileNavOpenIcon = e.target.closest('#mobileNav-open-icon');
-    const LocationIcon = e.target.closest('.show-btn-location');
-    const NearbyLocationIcon = e.target.closest('.show-btn-nearby-location');
-    const PostAdMobileBottom = e.target.closest("#Post-ad-mobile");
 
     if (mobileNavOpenIcon) {
       dispatch(ShowMobileNavFN());
-    }
-    if (LocationIcon) {
-      dispatch(ShowLocationPopupFN());
-    }
-    if (PostAdMobileBottom) {
-      dispatch(SetShowPostAdFN());
-    }
-    if (NearbyLocationIcon) {
-      dispatch(ShowNearbyLocationPopUpFN());
     }
   };
 
