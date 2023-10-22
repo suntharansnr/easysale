@@ -401,7 +401,7 @@ export default function SearchScreen(props) {
                             <div className="featured-box">
                               <figure>
                                 <div className="icon">
-                                  <Favoritebtn slug={row.slug} />
+                                  <Favoritebtn ad={row} />
                                   <span>
                                     <i className="lni-bookmark"></i>
                                   </span>
