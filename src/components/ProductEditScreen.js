@@ -17,6 +17,7 @@ export default function ProductEditScreen(props) {
 
   const [id,setId] = useState('');
   const [category, setCategory] = useState('');
+  const [subcategory, setSubCategory] = useState('');
   const [brand, setBrand] = useState('');
   const [ad_title, setTitle] = useState('');
   const [ad_description, setDescription] = useState('');
@@ -34,7 +35,12 @@ export default function ProductEditScreen(props) {
   const [address, setSeller_address] = useState('');
 
   const productDetails = useSelector((state) => state.productDetails);
-  const { loading, error, product } = productDetails;
+  const { 
+    loading : loadingProduct, 
+    error : errorProduct, 
+    success : successProduct,
+    product 
+  } = productDetails;
 
   const productUpdate = useSelector((state) => state.productUpdate);
   const {
@@ -42,8 +48,6 @@ export default function ProductEditScreen(props) {
     error: errorUpdate,
     success: successUpdate,
   } = productUpdate;
-
-  console.log(successUpdate)
 
   const dispatch = useDispatch();
 
@@ -60,16 +64,16 @@ export default function ProductEditScreen(props) {
     } 
     else {
       setId(productId);
-      setCategory('');
-      setBrand('');
+      setCategory(product.ad.sub_category_id);
+      setSubCategory(product.ad.sub_category_id);
       setTitle(product.ad.title);
       setDescription(product.ad.description);
       setType(product.ad.type)
       setCondition(product.ad.ad_condition);
       setPrice(product.ad.price);
+      setNegotiable(product.ad.is_negotiable);
       setImage('');
       setDistrict(product.ad.district_id);
-      setCity(product.ad.city_ad);
       setPrice_plan(product.ad.price_plan);
       setSeller_name(product.ad.seller_name);
       setSeller_email(product.ad.seller_email);
@@ -142,12 +146,18 @@ export default function ProductEditScreen(props) {
   } = productCategoryList;
 
   const getDataByCategory = useSelector((state) => state.getDataByCategory);
-  const { loading: loadingData, error: errorData, datas } = getDataByCategory;
+  const { 
+    loading: loadingData, 
+    success: successData,
+    error: errorData, 
+    datas 
+  } = getDataByCategory;
 
   const districtList = useSelector((state) => state.districtList);
   const {
     loading: loadingDistrict,
     error: errorDistrict,
+    success: successDistrict,
     districts,
   } = districtList;
 
@@ -155,9 +165,10 @@ export default function ProductEditScreen(props) {
   const {
     loading: loadingCity,
     error: errorCity,
+    success: successCity,
     cities,
   } = getCityByDistrict;
-
+  
   const productImageList = useSelector((state) => state.productImageList);
   const {
     loading: loadingImages,
@@ -175,6 +186,36 @@ export default function ProductEditScreen(props) {
     dispatch(getCity(districtId));
   }
 
+  useEffect(() => {
+    if (category) {
+      getDatas(category);
+    }
+  }, [category]);
+
+  useEffect(() => {
+    if (district) {
+      getCities(district);
+    }
+  }, [district]);
+
+  useEffect(() => {
+     if(successCity && successProduct){
+       setCity(product.ad.city_id);
+     }
+  }, [successCity,successProduct])
+
+  useEffect(() => {
+     if(successData && successProduct){
+      if(category === product.ad.sub_category_id)
+      {
+        setBrand(product.ad.brand_id);
+      }
+      else{
+        setBrand('');
+      }
+     }
+  }, [successData,successProduct])
+  
   return (
     <div>
       <div className="page-header">
@@ -210,11 +251,15 @@ export default function ProductEditScreen(props) {
                         <div className="form-group mb-3 tg-inputwithicon">
                           <label className="control-label">Categories</label>
                           <div className="tg-select form-control">
-                            <select onChange={(e) => { setCategory(e.target.value); getDatas(e.target.value) }}>
-                              <option value={category}>Select Categories</option>
-                              {categories?.map((c) => (
-                                <option value={c.id}>{c.collectionName}</option>
-                              ))}
+                            <select value={category} onChange={(e) => { setCategory(e.target.value); getDatas(e.target.value) }}>
+                            <option value=''>Select Categories</option>
+                            {product?.categories?.map((category) => (
+                            <optgroup label={category.category_name_en}>
+                                {category.sub_categories?.length > 0 && category.sub_categories?.map((c) => (
+                                <option value={c.id}>{c.category_name_en}</option>
+                                ))}
+                            </optgroup>
+                            ))}
                             </select>
                           </div>
                         </div>
@@ -222,7 +267,7 @@ export default function ProductEditScreen(props) {
                           <div className="form-group mb-3 tg-inputwithicon">
                             <label className="control-label">Brands</label>
                             <div className="tg-select form-control">
-                              <select>
+                              <select value={brand} onChange={(e) => { setBrand(e.target.value)}}>
                                 <option value="none">Select Brands</option>
                                 {brands?.map((c) => (
                                   <option value={c.id}>{c.brand_name}</option>
@@ -242,14 +287,14 @@ export default function ProductEditScreen(props) {
                         </div>
 
                         <div className="form-group mb-3">
-                          <strong>Ad Type</strong>
+                          <strong>Ad Type {type}</strong>
                           <div className="tg-selectgroup">
                             <span className="tg-radio">
-                              <input id="tg-sameuser" type="radio" name="usertype" value="personal" checked={type == 'personal' ? true : false} onChange={(e) => setType(e.target.value)} />
+                              <input id="tg-sameuser" type="radio" name="type" value="personal" checked={type == 'personal' ? 'checked' : ''} onChange={(e) => setType(e.target.value)} />
                                 <label for="tg-sameuser"> Private</label>
                             </span>
                             <span className="tg-radio ml-1">
-                              <input id="tg-someoneelse" type="radio" name="usertype" value="business" checked={type == 'business' ? true : false} onChange={(e) => setType(e.target.value)} />
+                              <input id="tg-someoneelse" type="radio" name="type" value="business" checked={type == 'business' ? 'checked' : ''} onChange={(e) => setType(e.target.value)} />
                                 <label for="tg-someoneelse"> Business</label>
                             </span>
                           </div>
@@ -270,8 +315,8 @@ export default function ProductEditScreen(props) {
                           <input className="form-control input-md" name="price" placeholder="Ad your Price" type="text" value={price} onChange={(e) => setPrice(e.target.value)} />
                           <div className="tg-checkbox mt-3">
                             <div className="custom-control custom-checkbox">
-                              <input type="checkbox" className="custom-control-input" id="tg-priceoncall" />
-                              <label className="custom-control-label" for="tg-priceoncall" onChange={(e) => setNegotiable(e.target.value)}>Negotiable </label>
+                              <input type="checkbox" className="custom-control-input" id="tg-priceoncall" name="negotiable" checked={negotiable} value={negotiable} onChange={(e) => setNegotiable(e.target.checked)}/>
+                              <label className="custom-control-label" for="tg-priceoncall">Negotiable </label>
                             </div>
                           </div>
                         </div>
@@ -326,8 +371,8 @@ export default function ProductEditScreen(props) {
                           <div className="form-group mb-3 tg-inputwithicon">
                             <label className="control-label">City</label>
                             <div className="tg-select form-control">
-                              <select valu={city} eonChange={(e) => setCity(e.target.value)}>
-                                <option value="none">Select districts</option>
+                              <select value={city} onChange={(e) => setCity(e.target.value)}>
+                                <option value="none">Select city</option>
                                 {cities?.map((c) => (
                                   <option value={c.id}>{c.name_en}</option>
                                 ))}

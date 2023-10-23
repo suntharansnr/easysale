@@ -17,6 +17,7 @@ export const districtListReducer = (
     case DISTRICT_LIST_SUCCESS:
       return {
         loading: false,
+        success: true,
         districts:action.payload,
       };
     case DISTRICT_LIST_FAIL:
@@ -31,7 +32,7 @@ export const getCityByDistrict = (state = { loading: true }, action) => {
     case  GET_CITY_REQUEST:
       return { loading: true };
     case  GET_CITY_SUCCESS:
-      return { loading: false, cities: action.payload };
+      return { loading: false,success: true, cities: action.payload };
     case  GET_CITY_FAIL:
       return { loading: false, error: action.payload };
     default:

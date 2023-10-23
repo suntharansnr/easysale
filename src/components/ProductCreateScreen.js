@@ -337,7 +337,7 @@ export default function ProductCreateScreen(props) {
                             <label className="control-label">City</label>
                             <div className="tg-select form-control">
                               <select onChange={(e) => setCity(e.target.value)}>
-                                <option value="none">Select districts</option>
+                                <option value="none">Select city</option>
                                 {cities?.map((c) => (
                                   <option value={c.id}>{c.name_en}</option>
                                 ))}
