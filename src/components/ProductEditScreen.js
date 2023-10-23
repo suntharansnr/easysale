@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Axios from 'axios';
-import { createProduct, detailsProduct, getData, listProductCategories, listProductImages, updateProduct } from '../actions/productActions';
+import { createProduct, detailsProduct, getData, listProductImages, updateProduct } from '../actions/productActions';
 import LoadingBox from './LoadingBox';
 import MessageBox from './MessageBox';
 import { PRODUCT_CREATE_RESET, PRODUCT_UPDATE_RESET } from '../constants/productConstants';
 import Sidebar from './Sidebar';
-import { getCity, listDistrict } from '../actions/locationActions';
+import { getCity } from '../actions/locationActions';
 import { useNavigate, useParams } from 'react-router-dom';
 
 export default function ProductEditScreen(props) {
@@ -52,8 +52,6 @@ export default function ProductEditScreen(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(listDistrict());
-    dispatch(listProductCategories());
     dispatch(listProductImages());
     if (successUpdate) {
       navigate('/dashboard');
@@ -140,13 +138,6 @@ export default function ProductEditScreen(props) {
     }
   };
 
-  const productCategoryList = useSelector((state) => state.productCategoryList);
-  const {
-    loading: loadingCategories,
-    error: errorCategories,
-    categories,
-  } = productCategoryList;
-
   const getDataByCategory = useSelector((state) => state.getDataByCategory);
   const { 
     loading: loadingData, 
@@ -154,14 +145,6 @@ export default function ProductEditScreen(props) {
     error: errorData, 
     datas 
   } = getDataByCategory;
-
-  const districtList = useSelector((state) => state.districtList);
-  const {
-    loading: loadingDistrict,
-    error: errorDistrict,
-    success: successDistrict,
-    districts,
-  } = districtList;
 
   const getCityByDistrict = useSelector((state) => state.getCityByDistrict);
   const {
@@ -242,6 +225,11 @@ export default function ProductEditScreen(props) {
               <Sidebar />
             </div>
             <div className="col-sm-12 col-md-8 col-lg-9">
+              {
+                loadingProduct || loadingCity || loadingData || loadingImages ?
+                <LoadingBox/>
+                :
+                (
               <form className="form" onSubmit={submitHandler}>
                 <div className="row page-content">
                   <div className="col-xs-12 col-sm-12 col-md-12 col-lg-7">
@@ -364,7 +352,7 @@ export default function ProductEditScreen(props) {
                             <div className="tg-select form-control">
                               <select value={district} onChange={(e) => { setDistrict(e.target.value); getCities(e.target.value) }}>
                                 <option value="none">Select districts</option>
-                                {districts?.map((c) => (
+                                {product?.districts?.map((c) => (
                                   <option value={c.id}>{c.name_en}</option>
                                 ))}
                               </select>
@@ -448,6 +436,8 @@ export default function ProductEditScreen(props) {
                   </div>
                 </div>
               </form>
+                )
+              }
             </div>
 
           </div>
