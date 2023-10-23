@@ -33,7 +33,7 @@ export default function ProductEditScreen(props) {
   const [seller_email, setSeller_email] = useState('');
   const [seller_phone, setSeller_phone] = useState('');
   const [address, setSeller_address] = useState('');
-
+  const [mark_ad_urgent,setMarkAdUrgent] = useState('');
   const productDetails = useSelector((state) => state.productDetails);
   const { 
     loading : loadingProduct, 
@@ -73,6 +73,7 @@ export default function ProductEditScreen(props) {
       setPrice(product.ad.price);
       setNegotiable(product.ad.is_negotiable);
       setImage('');
+      setMarkAdUrgent(product.ad.mark_ad_urgent)
       setDistrict(product.ad.district_id);
       setPrice_plan(product.ad.price_plan);
       setSeller_name(product.ad.seller_name);
@@ -96,6 +97,7 @@ export default function ProductEditScreen(props) {
         condition,
         negotiable,
         price,
+        mark_ad_urgent,
         image,
         district,
         city,
@@ -405,7 +407,7 @@ export default function ProductEditScreen(props) {
 
                           <div className="tg-checkbox">
                             <div className="custom-control custom-checkbox">
-                              <input type="checkbox" className="custom-control-input" id="tg-agreetermsandrules" />
+                              <input type="checkbox" className="custom-control-input" id="tg-agreetermsandrules" name='mark_ad_urgent' checked={mark_ad_urgent} value={mark_ad_urgent} onChange={(e) => setMarkAdUrgent(e.target.checked)}/>
                               <label className="custom-control-label" for="tg-agreetermsandrules">Mark ad as urgent</label>
                             </div>
                           </div>
