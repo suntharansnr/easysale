@@ -68,7 +68,7 @@ export default function Myads(props) {
                                             <ul>
                                                 <li class="active">
                                                     <Link to={'/my-ads'}>
-                                                        All Ads (42)
+                                                        All Ads ({metrics ? metrics.total_ads : 'loading...'})
                                                     </Link>
                                                 </li>
                                                 <li>
@@ -154,20 +154,34 @@ export default function Myads(props) {
                                             <nav>
                                                 <ul class="pagination justify-content-center">
                                                     {
-                                                        links?.length > 0 && (
-                                                            links.map((row, key) => (
-                                                                <li class="page-item">
-                                                                        <Link className={key + 1 === page ? 'page-link active' : 'page-link'}
-                                                                            key={key + 1}
-                                                                            to={getFilterUrl({ page: key + 1 })}
-                                                                        >
-                                                                            {key + 1}
-                                                                        </Link>
-                                                                </li>
-                                                            ))
+                                                        links?.length > 3 && (
+                                                            links.map((link, key) => 
+                                                                (
+                                                                    link.url === null ?
+                                                                    (<li class="page-item">
+                                                                    <Link className={link.active ? 'page-link active' : 'page-link'}
+                                                                        key={key}
+                                                                        to={getFilterUrl({ page: key })}
+                                                                    >
+                                                                        <span dangerouslySetInnerHTML={{ __html: link.label }} />
+                                                                    </Link>
+                                                                    </li>
+                                                                    )
+                                                                    :
+                                                                    (                                                                    
+                                                                    <li class="page-item">
+                                                                                <Link className={link.active ? 'page-link active' : 'page-link'}
+                                                                                    key={key}
+                                                                                    to={getFilterUrl({ page: key })}
+                                                                                >
+                                                                                    <span dangerouslySetInnerHTML={{ __html: link.label }} />
+                                                                                </Link>
+                                                                    </li>
+                                                                    )
+                                                                )
+                                                            )
                                                         )
                                                     }
-                                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
                                                 </ul>
                                             </nav>
                                         </div>

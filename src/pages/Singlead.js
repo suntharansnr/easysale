@@ -29,10 +29,12 @@ function Singlead() {
             setRelated(data['related_ads'])
             setCustomArr(data['custom_arr'])
             setCustomArrMultiCheck(data['custom_arr_multi_check'])
+        }).catch(({ response }) => {
+            if (response.status === 422) {
+                navigate('/404')
+            } 
         })
     }
-
-    console.log(custom_arr_multi_check)
 
     const [ad_id, setAdId] = useState("")
     const [reason, setReason] = useState()

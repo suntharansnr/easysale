@@ -7,6 +7,7 @@ import {
   productCategoryListReducer,
   productCreateReducer,
   productDeleteReducer,
+  getProductCreateReducer,
   productDetailsReducer,
   productImageListReducer,
   productListReducer,
@@ -59,6 +60,7 @@ const reducer = combineReducers({
 
   productList: productListReducer,
   productDetails: productDetailsReducer,
+  getProductCreate: getProductCreateReducer,
   productCreate: productCreateReducer,
   productUpdate: productUpdateReducer,
   productDelete: productDeleteReducer,

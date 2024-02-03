@@ -14,8 +14,10 @@ function Topbar() {
 
     const dispatch = useDispatch();
     useEffect(() => {
+        if (!themeInfo) {
         dispatch(gettheme());
-    }, [dispatch]);
+        }
+    }, [themeInfo,dispatch]);
 
     const signoutHandler = () => {
         dispatch(signout());

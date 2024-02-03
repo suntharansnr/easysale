@@ -39,6 +39,9 @@ import {
   PRODUCT_IMAGE_LIST_REQUEST,
   PRODUCT_IMAGE_LIST_SUCCESS,
   PRODUCT_IMAGE_LIST_FAIL,
+  GET_PRODUCT_CREATE_REQUEST,
+  GET_PRODUCT_CREATE_SUCCESS,
+  GET_PRODUCT_CREATE_FAIL,
 
 } from '../constants/productConstants';
 
@@ -172,6 +175,27 @@ export const detailsProduct = (productId) => async (dispatch, getState) => {
     });
   }
 };
+
+export const getProductCreate = () => async (dispatch, getState) => {
+  dispatch({ type: GET_PRODUCT_CREATE_REQUEST });
+  const {userSignin: { userInfo }} = getState();
+  try {
+    const { data } = await Axios.get(`${process.env.REACT_APP_API_URL}/api/u/posts/create`,
+    {
+      headers: { Authorization: `Bearer ${userInfo['data']['token']}` },
+    });
+    dispatch({ type: GET_PRODUCT_CREATE_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: GET_PRODUCT_CREATE_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
 export const createProduct = (product) => async (dispatch, getState) => {
   dispatch({ type: PRODUCT_CREATE_REQUEST });
   const {

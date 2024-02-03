@@ -6,7 +6,7 @@ import MessageBox from '../components/MessageBox';
 import { PRODUCT_CREATE_RESET } from '../constants/productConstants';
 import Sidebar from './Sidebar';
 
-import { createProduct, getData, listProductCategories, listProductImages } from '../actions/productActions';
+import { getProductCreate, createProduct, getData, listProductCategories, listProductImages } from '../actions/productActions';
 import { getCity, listDistrict } from '../actions/locationActions';
 
 import { useNavigate } from 'react-router-dom';
@@ -34,12 +34,20 @@ export default function ProductCreateScreen(props) {
 
   const productCreate = useSelector((state) => state.productCreate);
   const { loading, errors, success, product } = productCreate;
+
+  const getProductCreateData = useSelector((state) => state.getProductCreate);
+  const { 
+    loading : loadingGetProductCreate, 
+    errors : errorsGetProductCreate,
+    success : successGetProductCreate, 
+    data
+  } = getProductCreateData;
+
   console.log(errors)
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(listDistrict());
-    dispatch(listProductCategories());
+    dispatch(getProductCreate());
     dispatch(listProductImages());
     if (success) {
       toast('Ad added successfuly')
@@ -117,22 +125,8 @@ export default function ProductCreateScreen(props) {
     }
   };
 
-  const productCategoryList = useSelector((state) => state.productCategoryList);
-  const {
-    loading: loadingCategories,
-    error: errorCategories,
-    categories,
-  } = productCategoryList;
-
   const getDataByCategory = useSelector((state) => state.getDataByCategory);
   const { loading: loadingData, error: errorData, datas } = getDataByCategory;
-
-  const districtList = useSelector((state) => state.districtList);
-  const {
-    loading: loadingDistrict,
-    error: errorDistrict,
-    districts,
-  } = districtList;
 
   const getCityByDistrict = useSelector((state) => state.getCityByDistrict);
   const {
@@ -182,6 +176,11 @@ export default function ProductCreateScreen(props) {
               <Sidebar />
             </div>
             <div className="col-sm-12 col-md-8 col-lg-9">
+            {
+                loadingGetProductCreate ?
+                <LoadingBox/>
+                :
+                (
               <form className="form" onSubmit={submitHandler}>
                 <div className="row page-content">
                   <div className="col-xs-12 col-sm-12 col-md-12 col-lg-7">
@@ -193,10 +192,14 @@ export default function ProductCreateScreen(props) {
                         <div className="form-group mb-3 tg-inputwithicon">
                           <label className="control-label">Categories</label>
                           <div className="tg-select form-control">
-                            <select onChange={(e) => { setCategory(e.target.value); getDatas(e.target.value) }}>
-                              <option value={category}>Select Categories</option>
-                              {categories?.map((c) => (
-                                <option value={c.id}>{c.collectionName}</option>
+                            <select value={category} onChange={(e) => { setCategory(e.target.value); getDatas(e.target.value) }}>
+                              <option>Select Categories</option>
+                              {data.categories?.map((category) => (
+                                <optgroup label={category.category_name_en}>
+                                  {category.sub_categories?.length > 0 && category.sub_categories?.map((c) => (
+                                  <option value={c.id}>{c.category_name_en}</option>
+                                  ))}
+                                </optgroup>
                               ))}
                             </select>
                           </div>
@@ -208,7 +211,7 @@ export default function ProductCreateScreen(props) {
                           <div className="form-group mb-3 tg-inputwithicon">
                             <label className="control-label">Brands</label>
                             <div className="tg-select form-control">
-                              <select>
+                              <select  value={brand} onChange={(e) => { setBrand(e.target.value)}}>
                                 <option value="none">Select Brands</option>
                                 {brands?.map((c) => (
                                   <option value={c.id}>{c.brand_name}</option>
@@ -240,11 +243,11 @@ export default function ProductCreateScreen(props) {
                           <strong>Ad Type</strong>
                           <div className="tg-selectgroup">
                             <span className="tg-radio">
-                              <input id="tg-sameuser" type="radio" name="type" value="personal" onChange={(e) => setType(e.target.value)} />
+                              <input id="tg-sameuser" type="radio" name="type" value="personal" checked={type == 'personal' ? 'checked' : ''} onChange={(e) => setType(e.target.value)} />
                                 <label for="tg-sameuser"> Private</label>
                             </span>
                             <span className="tg-radio ml-1">
-                              <input id="tg-someoneelse" type="radio" name="type" value="business" onChange={(e) => setType(e.target.value)} />
+                              <input id="tg-someoneelse" type="radio" name="type" value="business" checked={type == 'business' ? 'checked' : ''} onChange={(e) => setType(e.target.value)} />
                                 <label for="tg-someoneelse"> Business</label>
                             </span>
                             {
@@ -256,7 +259,7 @@ export default function ProductCreateScreen(props) {
                         <div className="form-group mb-3 tg-inputwithicon">
                           <label className="control-label">Condition</label>
                           <div className="tg-select form-control">
-                            <select onChange={(e) => setCondition(e.target.value)}>
+                            <select value={condition} onChange={(e) => setCondition(e.target.value)}>
                               <option value="new">New</option>
                               <option value="used">Used</option>
                             </select>
@@ -268,14 +271,14 @@ export default function ProductCreateScreen(props) {
 
                         <div className="form-group mb-3">
                           <label className="control-label">Price</label>
-                          <input className="form-control input-md" name="price" placeholder="Ad your Price" type="text" onChange={(e) => setPrice(e.target.value)} />
+                          <input className="form-control input-md" name="price" placeholder="Ad your Price" type="text" value={price} onChange={(e) => setPrice(e.target.value)} />
                           {
                               errors ? <p class="text-danger">{errors?.errors?.price}</p> : ''
                           }
                           <div className="tg-checkbox mt-3">
                             <div className="custom-control custom-checkbox">
-                              <input type="checkbox" className="custom-control-input" id="tg-priceoncall" />
-                              <label className="custom-control-label" for="tg-priceoncall" onChange={(e) => setNegotiable(e.target.value)}>Negotiable </label>
+                              <input type="checkbox" className="custom-control-input" id="tg-priceoncall" name="negotiable" checked={negotiable} value={negotiable} onChange={(e) => setNegotiable(e.target.checked)}/>
+                              <label className="custom-control-label" for="tg-priceoncall">Negotiable </label>
                             </div>
                           </div>
                         </div>
@@ -324,7 +327,7 @@ export default function ProductCreateScreen(props) {
                             <div className="tg-select form-control">
                               <select onChange={(e) => { setDistrict(e.target.value); getCities(e.target.value) }}>
                                 <option value="none">Select districts</option>
-                                {districts?.map((c) => (
+                                {data.previous_districts?.map((c) => (
                                   <option value={c.id}>{c.name_en}</option>
                                 ))}
                               </select>
@@ -433,6 +436,8 @@ export default function ProductCreateScreen(props) {
                   </div>
                 </div>
               </form>
+                )
+            }
             </div>
 
           </div>

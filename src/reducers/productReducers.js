@@ -40,6 +40,9 @@ const {
   GET_DATA_REQUEST,
   GET_DATA_SUCCESS,
   GET_DATA_FAIL,
+  GET_PRODUCT_CREATE_REQUEST,
+  GET_PRODUCT_CREATE_SUCCESS,
+  GET_PRODUCT_CREATE_FAIL,
 } = require('../constants/productConstants');
 
 export const productListReducer = (
@@ -129,6 +132,20 @@ export const productDetailsReducer = (state = { loading: true }, action) => {
       return state;
   }
 };
+
+export const getProductCreateReducer = (state = { loading: true }, action) => {
+  switch (action.type) {
+    case GET_PRODUCT_CREATE_REQUEST:
+      return { loading: true };
+    case GET_PRODUCT_CREATE_SUCCESS:
+      return { loading: false,success:true, data: action.payload };
+    case GET_PRODUCT_CREATE_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
 export const productCreateReducer = (state = {}, action) => {
   switch (action.type) {
     case PRODUCT_CREATE_REQUEST:
