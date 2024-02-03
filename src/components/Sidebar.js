@@ -103,12 +103,6 @@ function Sidebar() {
                         </Link>
                     </li>
                     <li>
-                        <a href="privacy-setting.html" className={location.pathname === '/privacy' ? 'active' : ''}>
-                            <i className="lni-star"></i>
-                            <span>Privacy Settings</span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="#" onClick={signoutHandler}>
                             <i className="lni-enter"></i>
                             <span>Logout</span>

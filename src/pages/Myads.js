@@ -83,7 +83,7 @@ export default function Myads(props) {
                                                 </li>
                                                 <li>
                                                     <Link to={'/my-ads/status/2'}>
-                                                        Rejected ({metrics ? metrics.approved_ads : 'loading...'})
+                                                        Rejected ({metrics ? metrics.blocked_ads : 'loading...'})
                                                     </Link>
                                                 </li>
                                             </ul>
