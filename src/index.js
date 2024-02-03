@@ -30,7 +30,7 @@ const ThemeSelector = ({ children }) => {
 ReactDOM.render(
   <Provider store={store}>
   <React.StrictMode>
-    <ToastContainer />
+    <ToastContainer position="bottom-left"/>
     <ThemeSelector>
     <App />
     </ThemeSelector>
