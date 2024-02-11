@@ -10,13 +10,16 @@ function Latest() {
     useEffect(() => {
         fetchProducts()
     }, [])
-
-    const fetchProducts = async () => {
-        await axios.get(`${process.env.REACT_APP_API_URL}/api/AllAds`).then(({ data }) => {
-            setProducts(data['ads']['data']);
-        })
-    }
     
+    const fetchProducts = async () => {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/AllAds`);
+        setProducts(response.data?.ads?.data || []);
+    };
+
+    const handleProductClick = (productId) => {
+        navigate(`/product/${productId}`);
+    };
+
     const navigate = useNavigate();
 
     return (
@@ -34,15 +37,20 @@ function Latest() {
                                                 <Favoritebtn ad={row} slug={row.slug}/>
                                                 <span><i className="lni-bookmark"></i></span>
                                             </div>
-                                            <a href="#" onClick={() => navigate(`/product/${row.id}`)}>
-                                                <img className="img-fluid" style={{width: "100%"}} src={row.feature_img ? `${process.env.REACT_APP_API_URL}/uploads/images/thumbs/${row.feature_img['media_name']}` : `${process.env.REACT_APP_API_URL}/assets/img-not-found.jpg`} alt="" /></a>
+                                            <Link to={`/product/${row.id}`}>
+                                                <img className="img-fluid" style={{width: "100%"}} src={row.feature_img ? `${process.env.REACT_APP_API_URL}/uploads/images/thumbs/${row.feature_img['media_name']}` : `${process.env.REACT_APP_API_URL}/assets/img-not-found.jpg`} alt="" />
+                                            </Link>
                                         </figure>
                                         <div className="feature-content" style={{width: "100%"}}>
                                             <div className="product">
-                                                <a href="#" onClick={() => navigate(`/search/category/${row.category_id}`)}>{row.category?.category_name_en} &gt; </a>
-                                                <a href="#" onClick={() => navigate(`/search/category/${row.category_id}/sub_category/${row.subcategory_id}`)}>{row.sub_category?.category_name_en}</a>
+                                                <Link to={`/search/category/${row.category_id}`}>
+                                                    {row.category?.category_name_en} &gt; 
+                                                </Link>
+                                                <Link to={`/search/category/${row.category_id}/sub_category/${row.sub_category_id}`}>
+                                                    {row.sub_category?.category_name_en}
+                                                </Link>
                                             </div>
-                                            <h4><a href="#" onClick={() => navigate(`/product/${row.id}`)}>{row.title}</a></h4>
+                                            <h4><Link to={`/product/${row.id}`}>{row.title}</Link></h4>
                                             <div className="meta-tag">
                                                 <span>
                                                     <a href="#"><i className="lni-user"></i> {row.seller_name}</a>

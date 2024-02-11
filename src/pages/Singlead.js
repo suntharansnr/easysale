@@ -182,7 +182,7 @@ function Singlead() {
                                                 related.map((row, key) => (
                                                     <li>
                                                         <div className="widget-thumb">
-                                                            <a href="#"><img src={row.feature_img ? `${process.env.REACT_APP_API_URL}/${row.feature_img}` : '/assets/img-not-found.jpg'} alt="" /></a>
+                                                            <a href="#"><img src={row.feature_img ? `${process.env.REACT_APP_API_URL}/${row.feature_img}` : `${process.env.REACT_APP_API_URL}`+'/assets/img-not-found.jpg'} alt="" /></a>
                                                         </div>
                                                         <div className="widget-content">
                                                             <h4><a href="#">

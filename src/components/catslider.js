@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import OwlCarousel from "react-owl-carousel";
@@ -9,14 +9,17 @@ function Catslider() {
     const [top_categories, setTop_categories] = useState([])
 
     useEffect(() => {
-        fetchTop_categories()
+        fetchTopCategories()
     }, [])
 
-    const fetchTop_categories = async () => {
-        await axios.get(`${process.env.REACT_APP_API_URL}/api/top_categories`).then(({ data }) => {
-            setTop_categories(data['top_categories']);
-        })
-    }
+    const fetchTopCategories = useCallback(async () => {
+        try {
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/top_categories`);
+            setTop_categories(response.data['top_categories']);
+        } catch (error) {
+            console.error('Error fetching top categories:', error);
+        }
+    }, []);
 
     const options = {
         loop: true,
@@ -39,6 +42,10 @@ function Catslider() {
 
     const navigate = useNavigate();
 
+    const handleCategoryClick = useCallback((categoryId) => {
+        navigate(`/search/category/${categoryId}`);
+    }, [navigate]);
+
     return (
         <section id="categories">
             {
@@ -50,7 +57,7 @@ function Catslider() {
                                     {
                                         top_categories.map((row, key) => (
                                             <div className="item" key={key}>
-                                                <a href="#" onClick={() => navigate(`/search/category/${row.id}`)}>
+                                                <Link to={`/search/category/${row.id}`} onClick={() => handleCategoryClick(row.id)}>
                                                     <div className="category-icon-item">
                                                         <div className="icon-box">
                                                             <div className="icon">
@@ -59,7 +66,7 @@ function Catslider() {
                                                             <h4>{row.category_name_en}</h4>
                                                         </div>
                                                     </div>
-                                                </a>
+                                                </Link>
                                             </div>
                                         ))
                                     }
